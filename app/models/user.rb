@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def self.authenticate(username,password)
+    find_by_username(username).try(:authenticate, password)
+  end
+
   # Callbacks
   before_destroy :is_never_destroyable
   before_save :reformat_phone
