@@ -46,6 +46,13 @@ class User < ActiveRecord::Base
     find_by_username(username).try(:authenticate, password)
   end
 
+  ROLES = [['Admin', :admin],['Manager', :manager],['Customer', :customer],['Shipper', :shipper]]
+
+  def role?(authorized_role)
+    return false if role.nil?
+    role.to_sym == authorized_role
+  end
+
   # Callbacks
   before_destroy :is_never_destroyable
   before_save :reformat_phone
