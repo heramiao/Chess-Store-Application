@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:show, :edit, :update]  # user can never be destroyed
+    authorize_resource
 
     def index
     end

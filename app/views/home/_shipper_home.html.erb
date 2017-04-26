@@ -1,0 +1,15 @@
+<h3>Welcome <%= current_user.first_name %></h3>
+
+<% unless @unshipped_orders.empty? %>
+    <h5>Unshipped Orders</h5>
+    <% @unshipped_orders.each do |us_order| %>
+        <table>
+            <tr><th>Order <%= us_order.id %></th></tr>
+            <% @unshipped_items.each do |us_item| %>
+                <tr><td><%= us_item.item.name %></td></tr>
+            <% end %>
+        </table>
+    <% end %>
+<% end %>
+
+        

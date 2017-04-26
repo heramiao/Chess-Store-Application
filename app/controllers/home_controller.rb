@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def home
-    @items_to_reorder = Item.need_reorder.alphabetical.to_a
+    @unshipped_orders = Order.not_shipped.chronological
+    @unshipped_orders.each do |us_order|
+      @unshipped_items = us_order.order_items.unshipped
+    end
   end
 
   def about

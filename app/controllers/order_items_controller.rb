@@ -1,8 +1,10 @@
 class OrderItemsController < ApplicationController
 
     before_action :set_order_item, only: [:show, :edit, :update, :delete]
+    authorize_resource
 
     def index
+        #@unshipped_items = OrderItem.unshipped
     end
 
     def show 

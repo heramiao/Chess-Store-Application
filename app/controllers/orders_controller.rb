@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
 
     before_action :set_order, only: [:show, :edit, :update, :delete]
+    authorize_resource
 
     def index
-        @unshipped_orders = Order.not_shipped.chronological
+        #@unshipped_orders = Order.not_shipped.chronological
     end
 
     def show 

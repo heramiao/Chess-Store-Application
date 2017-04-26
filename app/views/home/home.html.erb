@@ -1,3 +1,8 @@
 
-<%# render :partial => 'general_home' %>
-<%= render :partial => 'reorder_list' %>
+<%#= render partial: "home/reorder_list" %>
+
+<% if logged_in? && current_user.role?(:shipper) %>
+    <%= render partial: "home/shipper_home" %>
+<% else %>
+    <%= render partial: "home/general_home" %>
+<% end %>
