@@ -25,4 +25,10 @@ Rails.application.routes.draw do
   # Set the root url
   root :to => 'home#home'  
 
+  # Additional items routes
+  # items_boards_path
+  # items_pieces_path
+  # items_clocks_path
+  # items_supplies_path
+
 end

@@ -15,7 +15,18 @@
       <%= link_to image_tag('chess_store_title.png'), home_path %>
     </div>
 
-    <%= render :partial => "partials/nav" %>
+    <!-- navigation bar -->
+    <% if logged_in? && current_user.role?(:shipper) %>
+      <%= render partial: "partials/nav/user_nav/shipper_nav" %>
+    <% elsif logged_in? && current_user.role?(:manager) %>
+      <%= render partial: "partials/nav/user_nav/manager_nav" %>
+    <% elsif logged_in? && current_user.role?(:admin) %>
+      <%= render partial: "partials/nav/user_nav/admin_nav" %>
+    <% elsif logged_in? && current_user.role?(:customer) %>
+      <%= render partial: "partials/nav/user_nav/customer_nav" %>
+    <% else %>
+      <%= render partial: "partials/nav/user_nav/guest_nav" %>
+    <% end %>
 
     <div id="login">
       <% if logged_in? %>

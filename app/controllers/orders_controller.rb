@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     authorize_resource
 
     def index
-        #@unshipped_orders = Order.not_shipped.chronological
     end
 
     def show 
@@ -24,6 +23,11 @@ class OrdersController < ApplicationController
     end
 
     def destroy
+    end
+
+    private
+    def set_order
+      @order = Order.find(params[:id])
     end
 
 end

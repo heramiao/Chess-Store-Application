@@ -13,16 +13,6 @@ class Ability
         u.id == user.id
       end
 
-      # they can read information related to orders
-      can :read, Order do |o|
-        user.id == o.user.id
-      end
-
-      # they can update order item
-      can :update, OrderItem do |oi|
-        user.id = oi.order.user.id
-      end
-
       # they can read info about items
       can :read, Item 
 

@@ -4,7 +4,6 @@ class OrderItemsController < ApplicationController
     authorize_resource
 
     def index
-        #@unshipped_items = OrderItem.unshipped
     end
 
     def show 

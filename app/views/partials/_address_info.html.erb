@@ -1,6 +1,6 @@
 
-  <%= school.street_1 %><br />
-  <% unless school.street_2.blank? %>
-    <%= school.street_2 %><br />
+  <%= order.school.street_1 %><br />
+  <% unless order.school.street_2.blank? %>
+    <%= order.school.street_2 %><br />
   <% end %>
-  <%= school.city %>, <%= school.state %> <%= school.zip %>
+  <%= order.school.city %>, <%= order.school.state %> <%= order.school.zip %>
