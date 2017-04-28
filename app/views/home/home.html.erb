@@ -1,8 +1,7 @@
-
-<%#= render partial: "home/reorder_list" %>
-
 <% if logged_in? && current_user.role?(:shipper) %>
-    <%= render partial: "home/shipper_home" %>
+    <%= render partial: "home/dashboard_structure", locals:{array: @unshipped_orders, title: "Unshipped Orders"} %>
+<% elsif logged_in? && current_user.role?(:manager) %>
+    <%= render partial: "home/dashboard_structure" %>
 <% else %>
     <%= render partial: "home/general_home" %>
 <% end %>

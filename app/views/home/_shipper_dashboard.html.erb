@@ -1,0 +1,7 @@
+<tr><th><%= "Order #{order.id}" %></th></tr>
+<% @unshipped_items.each do |us_item| %>
+    <tr>
+    <td><%= link_to us_item.item.name, item_path(us_item.item) %></td>
+    <td><%= render partial: "partials/address_info", locals:{order: order} %></td>
+    </tr>
+<% end %>
