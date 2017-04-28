@@ -16,6 +16,30 @@ class Ability
       # they can read info about items
       can :read, Item 
 
+    elseif user.role? :manager
+      # they can read any information in the system
+      can :read, :all
+
+      # they can create employee data
+      can :create, User 
+
+      # they can edit employee data
+      can :update, User do |u|
+        u.role != "admin"
+      end
+
+      # they can create items in the system
+      can :create, Item
+
+      # they can edit items in the system
+      can :update, Item
+
+      # they can create new prices for an items
+      can :create, ItemPrice
+
+      # they can add purchases to the system
+      can :create, Purchase 
+
     else
       can :read, :all
     end
