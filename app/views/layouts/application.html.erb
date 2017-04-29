@@ -16,17 +16,7 @@
     </div>
 
     <!-- navigation bar -->
-    <% if logged_in? && current_user.role?(:shipper) %>
-      <%= render partial: "partials/nav/user_nav/shipper_nav" %>
-    <% elsif logged_in? && current_user.role?(:manager) %>
-      <%= render partial: "partials/nav/user_nav/manager_nav" %>
-    <% elsif logged_in? && current_user.role?(:admin) %>
-      <%= render partial: "partials/nav/user_nav/admin_nav" %>
-    <% elsif logged_in? && current_user.role?(:customer) %>
-      <%= render partial: "partials/nav/user_nav/customer_nav" %>
-    <% else %>
-      <%= render partial: "partials/nav/user_nav/guest_nav" %>
-    <% end %>
+    <%= render partial: "partials/nav/user_nav/nav_structure" %>
 
     <div id="login">
       <% if logged_in? %>

@@ -1,0 +1,14 @@
+<div class="contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation"> 
+    <section class="top-bar-section">
+      <ul class="right">
+
+        <!-- render partials -->
+        <% if logged_in? && current_user.role?(:shipper) %>
+            <%= render partial: "partials/nav/user_nav/shipper_nav" %>
+        <% end %>
+        
+      </ul>
+    </section>
+  </nav>
+</div>
