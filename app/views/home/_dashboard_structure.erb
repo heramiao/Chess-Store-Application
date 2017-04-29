@@ -4,13 +4,10 @@
     <h2>There are no <%= title %> at this time</h2>
 <% else %>
     <h5><%= title %></h5>
-    <% array.each do |a| %>
-        <table>
-        <% if current_user.role?(:shipper) %>
-            <%= render partial: "shipper_dashboard", locals:{order: a} %>
-
-        <% end %>
-        </table>
+    <% if current_user.role?(:shipper) %>
+        <%= render partial: "shipper_dashboard" %>
+    <% elsif current_user.role?(:manager) %>
+        <%= render partial: "manager_dashboard" %>
     <% end %>
 <% end %>
 

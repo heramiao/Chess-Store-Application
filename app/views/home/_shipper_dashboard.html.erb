@@ -1,7 +1,11 @@
-<tr><th><%= "Order #{order.id}" %></th></tr>
-<% @unshipped_items.each do |us_item| %>
-    <tr>
-    <td><%= link_to us_item.item.name, item_path(us_item.item) %></td>
-    <td><%= render partial: "partials/address_info", locals:{order: order} %></td>
-    </tr>
+<% @unshipped_orders.each do |us_order| %>
+    <table class="table table-striped">
+    <tr><th><%= "Order #{us_order.id}" %></th></tr>
+    <% @unshipped_items.each do |us_item| %>
+        <tr>
+        <td><%= link_to us_item.item.name, item_path(us_item.item) %></td>
+        <td><%= render partial: "partials/address_info", locals:{order: us_order} %></td>
+        </tr>
+    <% end %>
+    </table>
 <% end %>
