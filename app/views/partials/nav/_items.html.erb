@@ -1,0 +1,13 @@
+<!-- options for items -->
+<% if can? [:create, :update], Item %>
+    <li class="has-dropdown">
+    <%= link_to "Items", items_path %>
+    <ul class="dropdown">
+    <li><%= link_to "Edit" %></li>
+    <li><%= link_to "Add New" %></li>
+    <li><%= link_to "View All" %></li>
+    </ul>
+</li>
+<% else %>
+    <li><%= link_to "Items", items_path %></li>
+<% end %>

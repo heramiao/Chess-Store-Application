@@ -5,7 +5,9 @@
 
         <!-- render partials -->
         <% if logged_in? && current_user.role?(:shipper) %>
-            <%= render partial: "partials/nav/user_nav/shipper_nav" %>
+            <%= render partial: "partials/nav/user_nav/shipper" %>
+          <% elsif logged_in? && current_user.role?(:manager) %>
+            <%= render partial: "partials/nav/user_nav/manager" %>
         <% end %>
         
       </ul>
