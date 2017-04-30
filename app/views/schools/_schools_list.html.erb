@@ -1,0 +1,17 @@
+<% if @active_schools.empty? && @inactive_schools.empty? %>
+    <h3>There are no available schools at this time</h3>
+<% else %>
+    <% unless @active_schools.empty? %>
+        <h4>Active Schools</h4>
+        <table class="table table-striped">
+        <thead>
+        <tr><th>School</th></tr>
+        </thead>
+        <tbody>
+        <% @active_schools.each do |active| %>
+            <tr><td><%= link_to "#{active.name}", school_path(active) %></td></tr>
+        <% end %>
+        </tbody>
+        </table>
+    <% end %>
+<% end %>

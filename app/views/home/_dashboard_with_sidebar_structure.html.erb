@@ -1,0 +1,19 @@
+<h3>Welcome <%= current_user.first_name %></h3>
+<br>
+<% if array.empty? %>
+    <h4>There are no <%= title %> at this time</h4>
+<% else %>
+    <div class="row">
+        <div class="small-8 columns">
+            <h5><%= title %></h5>
+            <% if current_user.role?(:manager) %>
+                <%= render partial: "manager_dashboard" %>
+            <% end %>
+        </div>
+
+        <div class="small-4 columns">
+            <!-- render sidebar partials -->
+            <%= render partial: "manager_sidebar" %>
+        <div>
+    </div>
+<% end %>

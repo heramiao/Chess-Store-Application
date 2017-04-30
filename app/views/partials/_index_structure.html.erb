@@ -15,10 +15,12 @@
   </div>
 </div>
 
-  <% unless logged_in? && (current_user.role?(:shipper) || current_user.role?(:customer)) %>
+<% if logged_in? %>
+  <% unless current_user.role?(:shipper) || current_user.role?(:customer) %>
     <!-- Add a button for new instances of object -->
     <%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
       <!-- <i class="fa fa-plus"></i> -->
       &nbsp;Add a New <%= model_name.capitalize %>
     <% end %>
   <% end %>
+<% end %>

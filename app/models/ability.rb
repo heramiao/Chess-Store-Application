@@ -16,7 +16,7 @@ class Ability
       # they can read info about items
       can :read, Item 
 
-    elseif user.role? :manager
+    elsif user.role? :manager
       # they can read any information in the system
       can :read, :all
 
