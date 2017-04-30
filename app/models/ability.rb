@@ -8,10 +8,12 @@ class Ability
       can :manage, :all
 
     elsif user.role? :shipper
-      # they can read or update their own profile
-      can [:show, :update], User do |u|
+      # they can read their own profile
+      can :show, User do |u|
         u.id == user.id
       end
+      # they can update their own profile
+      can :edit_current_user, User 
 
       # they can read info about items
       can :read, Item 
@@ -27,6 +29,9 @@ class Ability
       can :update, User do |u|
         u.role != "admin"
       end
+
+      # they can update their own profile
+      can :edit_current_user, User
 
       # they can create items in the system
       can :create, Item

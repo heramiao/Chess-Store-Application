@@ -1,0 +1,15 @@
+<% if @all_orders.empty? %>
+    <h3>There are no available orders at this time</h3>
+<% else %>
+    <h4>All Orders</h4>
+    <table class="table table-striped">
+    <thead>
+    <tr><th>Order</th></tr>
+    </thead>
+    <tbody>
+    <% @all_orders.each do |order| %>
+        <tr><td><%= link_to "#{order.id}", order_path(order) %></td></tr>
+    </tbody>
+    </table>
+<% end %>
+<% end %>

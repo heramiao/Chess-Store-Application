@@ -21,6 +21,14 @@ class UsersController < ApplicationController
         end
     end 
 
+    def edit_current_user
+        if logged_in?
+            @user = current_user
+        else
+            redirect_to home_path, notice: "Do not have access to edit current user"
+        end
+    end
+
     def create
         @user = User.new(user_params)
         if @user.save

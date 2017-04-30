@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :schools
 
   # Authentication routes
-  get 'user/edit' => 'users#edit', :as => :edit_current_user
+  get 'user/edit_current_user' => 'users#edit_current_user', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
@@ -25,10 +25,6 @@ Rails.application.routes.draw do
   # Set the root url
   root :to => 'home#home'  
 
-  # Additional items routes
-  # items_boards_path
-  # items_pieces_path
-  # items_clocks_path
-  # items_supplies_path
+
 
 end
