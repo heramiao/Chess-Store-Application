@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     end
 
     def show 
+        @order_items = Order.order_items.alphabetical
     end
 
     def new

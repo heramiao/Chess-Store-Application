@@ -3,13 +3,22 @@
 <% else %>
     <h4>All Orders</h4>
     <table class="table table-striped">
-    <thead>
-    <tr><th>Order</th></tr>
-    </thead>
-    <tbody>
-    <% @all_orders.each do |order| %>
-        <tr><td><%= link_to "#{order.id}", order_path(order) %></td></tr>
-    </tbody>
+        <thead>
+        <tr>
+        <th>Date Placed</th>
+        <th>School</th>
+        <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @all_orders.each do |order| %>
+            <tr>
+            <td><%= order.date %></td>
+            <td><%= link_to order.school.name, school_path(order.school) %></td>
+            <td><%= link_to "Details", order_path(order) %></td>
+            </tr>
+        <% end %>
+        </tbody>
     </table>
-<% end %>
 <% end %>

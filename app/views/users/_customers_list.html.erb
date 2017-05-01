@@ -1,0 +1,10 @@
+<% if @all_customers.empty? %>
+    <h3>There are no available customers at this time</h3>
+<% else %>
+    <h4>All Customers</h4>
+    <table class="table table-striped">
+        <% @all_customers.each do |customer| %>
+            <tr><td><%= link_to customer.proper_name, user_path(customer) %></td></tr>
+        <% end %>
+    </table>
+<% end %>

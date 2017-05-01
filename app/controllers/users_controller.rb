@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     authorize_resource
 
     def index
+        @all_customers = User.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
+        @all_employees = User.employees.alphabetical.paginate(:page => params[:page]).per_page(10)
     end
 
     def show 

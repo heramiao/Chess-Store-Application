@@ -13,7 +13,9 @@
 
         <div class="small-4 columns">
             <!-- render sidebar partials -->
-            <%= render partial: "manager_sidebar" %>
+            <% if current_user.role?(:manager) %>
+                <%= render partial: "partials/sidebar/manager_sidebar" %>
+            <% end %>
         <div>
     </div>
 <% end %>

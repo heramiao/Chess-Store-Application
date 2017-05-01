@@ -1,0 +1,11 @@
+<% if logged_in? && current_user.role?(:customer) %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "user", 
+                                                            primary: "customers_list", 
+                                                            secondary: nil,
+                                                            sidebar: "partials/sidebar/manager_sidebar"} %>
+<% else %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "user", 
+                                                         primary: "employees_list", 
+                                                         secondary: nil,
+                                                         sidebar: "partials/sidebar/manager_sidebar"} %>
+<% end %>
