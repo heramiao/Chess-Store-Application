@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     end
 
     def show 
-        @order_items = Order.order_items.alphabetical
+        @order_items = @order.order_items
     end
 
     def new

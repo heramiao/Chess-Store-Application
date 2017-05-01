@@ -19,6 +19,7 @@ class Order < ActiveRecord::Base
   # Scopes
   scope :chronological, -> { order(date: :desc) }
   scope :paid,          -> { where.not(payment_receipt: nil) }
+  #scope :unpaid,        -> { where(payment_receipt: nil) }
   scope :for_school,    ->(school_id) { where(school_id: school_id) }
 
   # Class methods

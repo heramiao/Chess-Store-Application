@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-7 columns">
+     <h3><b><%= @school.name %></b></h3>
+  </div>
+</div>
+
+<p>
+    <b>Address</b>: <%= @school.street_1 %><br />
+                    <% unless @school.street_2.blank? %>
+                        <%= @school.street_2 %><br />
+                    <% end %>
+                    <%= @school.city %>, <%= @school.state %> <%= @school.zip %>
+</p>
+
+<p>
+    <b>Min Grade</b>: <%= @school.min_grade %>
+<p>
+
+<p>
+    <b>Max Grade</b>: <%= @school.max_grade %>
+</p>
+
+<p>
+  <b>Active</b>: <%= @school.active ? 'Yes' : 'No' %>
+</p>
