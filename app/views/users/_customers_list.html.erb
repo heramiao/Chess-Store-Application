@@ -4,12 +4,16 @@
     <% unless @active_customers.empty? %>
         <h4>Active Customers</h4>
         <table class="table table-striped">
+            <thead>
             <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Username</th>
             </tr>
+            </thead>
+
+            <tbody>
             <% @active_customers.each do |active| %>
                 <tr>
                 <td><%= active.proper_name %></td>
@@ -18,18 +22,23 @@
                 <td><%= active.username %></td>
                 </tr>
             <% end %>
+            </tbody>
         </table>
     <% end %>
 
     <% unless @inactive_customers.empty? %>
         <h4>Inactive Customers</h4>
         <table class="table table-striped">
+            <thead>
             <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Username</th>
             </tr>
+            <thead>
+
+            <tbody>
             <% @inactive_customers.each do |inactive| %>
                 <tr>
                 <td><%= inactive.proper_name %></td>
@@ -38,6 +47,7 @@
                 <td><%= inactive.username %></td>
                 </tr>
             <% end %>
+            </tbody>
         </table>
     <% end %>
 <% end %>

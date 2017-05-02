@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     end
 
     def employee_index
-        @all_employees = User.employees.alphabetical.paginate(:page => params[:page]).per_page(10)
+        @active_employees = User.active.employees.alphabetical.paginate(:page => params[:page]).per_page(10)
+        @inactive_employees = User.inactive.employees.alphabetical.paginate(:page => params[:page]).per_page(10)
     end
 
     def show 

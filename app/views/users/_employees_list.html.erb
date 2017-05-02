@@ -1,10 +1,57 @@
-<% if @all_employees.empty? %>
+<% if @active_employees.empty? && @inactive_employees.empty?%>
     <h3>There are no available employees at this time</h3>
 <% else %>
-    <h4>All Employees</h4>
-    <table class="table table-striped">
-        <% @all_employees.each do |employee| %>
-            <tr><td><%= link_to employee.proper_name, user_path(employee) %></td></tr>
-        <% end %>
-    </table>
+    <% unless @active_employees.empty? %>
+        <h4>Active Employees</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Username</th>
+            <th>Role</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @active_employees.each do |active| %>
+                <tr>
+                <td><%= active.proper_name %></td>
+                <td><%= active.email %></td>
+                <td><%= active.phone %></td>
+                <td><%= active.username %></td>
+                <td><%= active.role %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    <% end %>
+
+    <% unless @inactive_employees.empty? %>
+        <h4>Inactive Employees</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Username</th>
+            <th>Role</th>
+            </tr>
+            <thead>
+
+            <tbody>
+            <% @inactive_employees.each do |inactive| %>
+                <tr>
+                <td><%= inactive.proper_name %></td>
+                <td><%= inactive.email %></td>
+                <td><%= inactive.phone %></td>
+                <td><%= inactive.username %></td>
+                <td><%= inactive.role %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    <% end %>
 <% end %>

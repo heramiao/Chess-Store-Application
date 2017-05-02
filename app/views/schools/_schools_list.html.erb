@@ -5,11 +5,53 @@
         <h4>Active Schools</h4>
         <table class="table table-striped">
         <thead>
-        <tr><th>School</th></tr>
+        <tr>
+        <th>School</th>
+        <th>Address</th>
+        <th>Min Grade</th>
+        <th>Max Grade </th>
+        </tr>
         </thead>
         <tbody>
         <% @active_schools.each do |active| %>
-            <tr><td><%= link_to "#{active.name}", school_path(active) %></td></tr>
+            <tr>
+            <td><%= active.name %></td>
+            <td><%= active.street_1 %><br />
+                <% unless active.street_2.blank? %>
+                    <%= active.street_2 %><br />
+                <% end %>
+                <%= active.city %>, <%= active.state %> <%= active.zip %></td>
+            <td><%= active.min_grade %></td>
+            <td><%= active.max_grade %></td>
+            </tr>
+        <% end %>
+        </tbody>
+        </table>
+    <% end %>
+
+    <% unless @inactive_schools.empty? %>
+        <h4>Inactive Schools</h4>
+        <table class="table table-striped">
+        <thead>
+        <tr>
+        <th>School</th>
+        <th>Address</th>
+        <th>Min Grade</th>
+        <th>Max Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @inactive_schools.each do |inactive| %>
+            <tr>
+            <td><%= inactive.name %></td>
+            <td><%= inactive.street_1 %><br />
+                <% unless inactive.street_2.blank? %>
+                    <%= inactive.street_2 %><br />
+                <% end %>
+                <%= inactive.city %>, <%= inactive.state %> <%= inactive.zip %></td>
+            <td><%= inactive.min_grade %></td>
+            <td><%= inactive.max_grade %></td>
+            </tr>
         <% end %>
         </tbody>
         </table>
