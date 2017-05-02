@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'about' => 'home#about', as: :about
   get 'contact' => 'home#contact', as: :contact
   get 'privacy' => 'home#privacy', as: :privacy
+
+  # More specific user routes
+  get 'user/customer_index' => 'users#customer_index', :as => :customer_index
+  get 'user/employee_index' => 'users#employee_index', :as => :employee_index
   
   # Set the root url
   root :to => 'home#home'  

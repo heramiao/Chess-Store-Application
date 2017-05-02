@@ -1,0 +1,10 @@
+<% if @all_employees.empty? %>
+    <h3>There are no available employees at this time</h3>
+<% else %>
+    <h4>All Employees</h4>
+    <table class="table table-striped">
+        <% @all_employees.each do |employee| %>
+            <tr><td><%= link_to employee.proper_name, user_path(employee) %></td></tr>
+        <% end %>
+    </table>
+<% end %>

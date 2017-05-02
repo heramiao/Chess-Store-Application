@@ -21,6 +21,8 @@ class Ability
     elsif user.role? :manager
       # they can read any information in the system
       can :read, :all
+      can :customer_index, User
+      can :employee_index, User
 
       # they can create employee data
       can :create, User 
