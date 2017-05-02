@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     end
 
     def customer_index
-        @all_customers = User.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
+        @active_customers = User.active.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
+        @inactive_customers = User.inactive.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
     end
 
     def employee_index

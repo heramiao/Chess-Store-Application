@@ -1,10 +1,43 @@
-<% if @all_customers.empty? %>
+<% if @active_customers.empty? && @inactive_customers.empty?%>
     <h3>There are no available customers at this time</h3>
 <% else %>
-    <h4>All Customers</h4>
-    <table class="table table-striped">
-        <% @all_customers.each do |customer| %>
-            <tr><td><%= link_to customer.proper_name, user_path(customer) %></td></tr>
-        <% end %>
-    </table>
+    <% unless @active_customers.empty? %>
+        <h4>Active Customers</h4>
+        <table class="table table-striped">
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Username</th>
+            </tr>
+            <% @active_customers.each do |active| %>
+                <tr>
+                <td><%= active.proper_name %></td>
+                <td><%= active.email %></td>
+                <td><%= active.phone %></td>
+                <td><%= active.username %></td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
+
+    <% unless @inactive_customers.empty? %>
+        <h4>Inactive Customers</h4>
+        <table class="table table-striped">
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Username</th>
+            </tr>
+            <% @inactive_customers.each do |inactive| %>
+                <tr>
+                <td><%= inactive.proper_name %></td>
+                <td><%= inactive.email %></td>
+                <td><%= inactive.phone %></td>
+                <td><%= inactive.username %></td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
 <% end %>
