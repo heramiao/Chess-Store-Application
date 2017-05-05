@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :schools
 
   # Authentication routes
-  get 'user/edit_current_user' => 'users#edit_current_user', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
   get 'privacy' => 'home#privacy', as: :privacy
 
   # More specific user routes
+  get 'user/edit_current_user' => 'users#edit_current_user', :as => :edit_current_user
   get 'user/customer_index' => 'users#customer_index', :as => :customer_index
   get 'user/employee_index' => 'users#employee_index', :as => :employee_index
   

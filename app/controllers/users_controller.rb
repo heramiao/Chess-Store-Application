@@ -3,9 +3,6 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]  # user can never be destroyed
     authorize_resource
 
-    def index
-    end
-
     def customer_index
         @active_customers = User.active.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
         @inactive_customers = User.inactive.customers.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -66,7 +63,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :password_confirmation, :role, :active)
+        params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :passoword_confirmation, :role, :active)
     end
 
     def set_user 

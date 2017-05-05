@@ -6,6 +6,8 @@
         <th width="300">Name</th>
         <th width="100">Price</th>
         <th width="100">Inventory</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +16,8 @@
           <td><%= link_to item.name, item_path(item) %></td>
           <td><%= number_to_currency item.current_price %></td>
           <td><%= item.inventory_level %></td>
+          <td><%= link_to "Make Inactive" %></td>
+          <td><%= link_to "Edit", edit_item_path(item) %></td>
         </tr>
       <% end %>
     </tbody>

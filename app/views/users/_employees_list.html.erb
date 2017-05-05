@@ -11,6 +11,7 @@
             <th>Phone</th>
             <th>Username</th>
             <th>Role</th>
+            <th></th>
             </tr>
             </thead>
 
@@ -22,6 +23,7 @@
                 <td><%= active.phone %></td>
                 <td><%= active.username %></td>
                 <td><%= active.role %></td>
+                <td><%= link_to "Edit", edit_user_path(active)%>
                 </tr>
             <% end %>
             </tbody>
@@ -38,6 +40,7 @@
             <th>Phone</th>
             <th>Username</th>
             <th>Role</th>
+            <th></th>
             </tr>
             <thead>
 
@@ -49,6 +52,7 @@
                 <td><%= inactive.phone %></td>
                 <td><%= inactive.username %></td>
                 <td><%= inactive.role %></td>
+                <td><%= link_to "Edit", edit_user_path(inactive) %>
                 </tr>
             <% end %>
             </tbody>

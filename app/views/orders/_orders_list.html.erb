@@ -14,7 +14,7 @@
         <tbody>
         <% @all_orders.each do |order| %>
             <tr>
-            <td><%= order.date %></td>
+            <td><%= order.date.strftime('%m/%d/%y') %></td>
             <td><%= link_to order.school.name, school_path(order.school) %></td>
             <td><%= link_to "Details", order_path(order) %></td>
             </tr>

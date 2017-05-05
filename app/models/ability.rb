@@ -25,11 +25,14 @@ class Ability
       can :employee_index, User
 
       # they can create employee data
-      can :create, User 
+      can :create, User do |u|
+        u.role != "customer"
+      end
 
       # they can edit employee data
       can :update, User do |u|
         u.role != "admin"
+        u.role != "customer"
       end
 
       # they can update their own profile
