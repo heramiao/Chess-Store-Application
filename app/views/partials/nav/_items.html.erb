@@ -1,5 +1,5 @@
 <!-- options for items -->
-<% if logged_in? && (current_user.role?(:shipper) || current_user.role?(:manager)) %>
+<% if logged_in? && current_user.role?(:manager) %>
     <li class="has-dropdown">
     <%= link_to "Items", items_path %>
     <ul class="dropdown">

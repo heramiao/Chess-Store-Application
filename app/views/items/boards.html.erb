@@ -5,6 +5,8 @@
       <tr>
         <th width="300">Name</th>
         <th width="100">Price</th>
+        <th>Quantity</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -12,6 +14,8 @@
         <tr>
           <td><%= link_to board.name, item_path(board) %></td>
           <td><%= number_to_currency board.current_price %></td>
+          <td><input type="integer"></td>
+          <td><%= link_to "Add to cart", class: 'button tiny radius secondary'%>
         </tr>
       <% end %>
     </tbody>

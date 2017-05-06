@@ -82,6 +82,10 @@ class Ability
 
     else
       can :read, :all
+      can :boards, Item
+      can :pieces, Item
+      can :clocks, Item
+      can :supplies, Item 
 
       # they can create a customer account
       can :create, User

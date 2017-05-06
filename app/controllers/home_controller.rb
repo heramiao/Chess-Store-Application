@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
 
-  before_action :set_user
-
   def home
     @unshipped_orders = Order.not_shipped.chronological
     @unshipped_orders.each do |us_order|
@@ -26,11 +24,6 @@ class HomeController < ApplicationController
   end
 
   def privacy
-  end
-
-  private
-  def set_user
-    @user = User.find(session[:user_id])
   end
   
 end

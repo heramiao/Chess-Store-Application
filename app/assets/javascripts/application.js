@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation.min
 //= require_tree .
 
-$(function() {
-  $(document).foundation('topbar', 'reflow');
-});
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+$(document).ready(function(){
+    $(".dropdown-button").dropdown();
+  });
+      
