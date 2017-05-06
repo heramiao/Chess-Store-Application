@@ -8,6 +8,8 @@
           <%= render partial: "partials/nav/user_nav/shipper" %>
         <% elsif logged_in? && current_user.role?(:manager) %>
           <%= render partial: "partials/nav/user_nav/manager" %>
+        <% elsif logged_in? && current_user.role?(:admin) %>
+          <%= render partial: "partials/nav/user_nav/admin" %>
         <% else %>
           <%= render partial: "partials/nav/user_nav/guest" %>
         <% end %>
