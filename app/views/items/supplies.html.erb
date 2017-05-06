@@ -1,0 +1,19 @@
+<% unless @supplies.empty? %>
+  <h5>Supplies</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="300">Name</th>
+        <th width="100">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @supplies.each do |supply| %>
+        <tr>
+          <td><%= link_to supply.name, item_path(supply) %></td>
+          <td><%= number_to_currency supply.current_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

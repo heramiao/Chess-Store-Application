@@ -68,6 +68,10 @@ class Ability
 
       # they can read info about items
       can :read, Item 
+      can :boards, Item
+      can :pieces, Item
+      can :clocks, Item
+      can :supplies, Item 
 
       # they can see list of past orders/order items
       can :read, Order

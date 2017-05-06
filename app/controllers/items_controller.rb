@@ -12,6 +12,22 @@ class ItemsController < ApplicationController
     @inactive_items = Item.inactive.alphabetical.to_a
   end
 
+  def boards
+    @boards = Item.active.for_category('boards').alphabetical.paginate(:page => params[:page]).per_page(10)
+  end
+
+  def pieces
+    @pieces = Item.active.for_category('pieces').alphabetical.paginate(:page => params[:page]).per_page(10)
+  end
+
+  def clocks
+    @clocks = Item.active.for_category('clocks').alphabetical.paginate(:page => params[:page]).per_page(10)
+  end
+
+  def supplies
+    @supplies = Item.active.for_category('supplies').alphabetical.paginate(:page => params[:page]).per_page(10)
+  end
+
   def show
     # get the price history for this item
     @price_history = @item.item_prices.chronological.to_a

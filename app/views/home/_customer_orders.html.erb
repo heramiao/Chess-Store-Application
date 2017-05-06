@@ -1,0 +1,25 @@
+<div id="past_orders">   
+    <% @past_orders.each do |order| %>
+        <table class="table table-striped">
+        <tr><th><%= "Order Placed on #{order.date}" %></th><th></th><th></th><th></th></tr>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Status</th>
+        </tr>
+        <% @past_order_items.each do |order_item| %>
+            <tr>
+            <td><%= link_to order_item.item.name, item_path(order_item.item) %></td>
+            <td><%= order_item.quantity %></td>
+            <td><%= order_item.subtotal %></td>
+            <% if order_item.shipped %>
+                <td>Shipped</td>
+            <% else %>
+                <td>Unshipped</td>
+            <% end %>
+            </tr>
+        <% end %>
+        </table>
+    <% end %>
+</div>

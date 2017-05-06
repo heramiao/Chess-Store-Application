@@ -1,0 +1,19 @@
+<% unless @clocks.empty? %>
+  <h5>Clocks</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="300">Name</th>
+        <th width="100">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clocks.each do |clock| %>
+        <tr>
+          <td><%= link_to clock.name, item_path(clock) %></td>
+          <td><%= number_to_currency clock.current_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

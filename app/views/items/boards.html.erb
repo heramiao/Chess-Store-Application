@@ -1,0 +1,19 @@
+<% unless @boards.empty? %>
+  <h5>Boards</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="300">Name</th>
+        <th width="100">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.each do |board| %>
+        <tr>
+          <td><%= link_to board.name, item_path(board) %></td>
+          <td><%= number_to_currency board.current_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

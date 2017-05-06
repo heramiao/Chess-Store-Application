@@ -4,8 +4,8 @@
     <%= render partial: "home/dashboard_with_sidebar_structure", locals:{array: @need_reorder, title: "Need Reorder Items"} %>
 <% elsif logged_in? && current_user.role?(:admin) %>
     <%= render partial: "home/admin_dashboard" %>
-<% elsif logged_in? && current_user.role(:customer) %>
-    
+<% elsif logged_in? && current_user.role?(:customer) %>
+    <%= render partial: "home/dashboard_structure", locals:{array: @past_orders, title: "Past Orders"} %>
 <% else %>
     <%= render partial: "home/general_home" %>
 <% end %>

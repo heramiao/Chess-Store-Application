@@ -8,6 +8,8 @@
         <h5><%= title %></h5>
         <% if current_user.role?(:shipper) %>
             <%= render partial: "shipper_dashboard" %>
+        <% elsif current_user.role?(:customer) %>
+            <%= render partial: "customer_dashboard" %>
         <% end %>
         </div>
     </div>
