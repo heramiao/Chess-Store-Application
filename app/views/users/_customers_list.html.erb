@@ -10,6 +10,10 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Username</th>
+            <% if logged_in? && current_user.role?(:admin) %>
+                <th></th>
+                <th></th>
+            <% end %>
             </tr>
             </thead>
 
@@ -20,6 +24,12 @@
                 <td><%= active.email %></td>
                 <td><%= active.phone %></td>
                 <td><%= active.username %></td>
+                <% if logged_in? && current_user.role?(:admin) %>
+                    <td><%= link_to(edit_user_path(active, active: false), class: 'button tiny radius secondary') do %>
+                        &nbsp;Make Inactive
+                        <% end %></td>
+                    <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%></td>
+                <% end %>
                 </tr>
             <% end %>
             </tbody>
@@ -35,6 +45,10 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Username</th>
+            <% if logged_in? && current_user.role?(:admin) %>
+                <th></th>
+                <th></th>
+            <% end %>
             </tr>
             <thead>
 
@@ -45,6 +59,12 @@
                 <td><%= inactive.email %></td>
                 <td><%= inactive.phone %></td>
                 <td><%= inactive.username %></td>
+                <% if logged_in? && current_user.role?(:admin) %>
+                    <td><%= link_to(edit_user_path(inactive, active: false), class: 'button tiny radius secondary') do %>
+                        &nbsp;Make Inactive
+                        <% end %></td>
+                    <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%></td>
+                <% end %>
                 </tr>
             <% end %>
             </tbody>

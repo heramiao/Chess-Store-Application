@@ -10,6 +10,10 @@
         <th>Address</th>
         <th>Min Grade</th>
         <th>Max Grade </th>
+        <% if logged_in? && current_user.role?(:admin) %>
+                <th></th>
+                <th></th>
+        <% end %>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +27,12 @@
                 <%= active.city %>, <%= active.state %> <%= active.zip %></td>
             <td><%= active.min_grade %></td>
             <td><%= active.max_grade %></td>
+            <% if logged_in? && current_user.role?(:admin) %>
+                    <td><%= link_to(edit_school_path(active, active: false), class: 'button tiny radius secondary') do %>
+                        &nbsp;Make Inactive
+                        <% end %></td>
+                    <td><%= link_to "Edit", edit_school_path(active), class: 'button tiny radius secondary'%></td>
+            <% end %>
             </tr>
         <% end %>
         </tbody>
@@ -38,6 +48,10 @@
         <th>Address</th>
         <th>Min Grade</th>
         <th>Max Grade</th>
+        <% if logged_in? && current_user.role?(:admin) %>
+                <th></th>
+                <th></th>
+        <% end %>
         </tr>
         </thead>
         <tbody>
@@ -51,6 +65,12 @@
                 <%= inactive.city %>, <%= inactive.state %> <%= inactive.zip %></td>
             <td><%= inactive.min_grade %></td>
             <td><%= inactive.max_grade %></td>
+            <% if logged_in? && current_user.role?(:admin) %>
+                    <td><%= link_to(edit_school_path(inactive, active: false), class: 'button tiny radius secondary') do %>
+                        &nbsp;Make Inactive
+                        <% end %></td>
+                    <td><%= link_to "Edit", edit_school_path(inactive), class: 'button tiny radius secondary'%></td>
+            <% end %>
             </tr>
         <% end %>
         </tbody>

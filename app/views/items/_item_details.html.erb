@@ -16,14 +16,6 @@
 </p>
 
 <p>
-  <b>Inventory Level</b>: <%= @item.inventory_level.nil? ? 'N/A' : @item.inventory_level %>
-</p>
-
-<p>
-  <b>Reorder Level</b>: <%= @item.reorder_level.nil? ? 'N/A' : @item.reorder_level %>
-</p>
-
-<p>
   <b>Category</b>: <%= @item.category.capitalize %>
 </p>
 
@@ -35,6 +27,18 @@
   <b>Total weight</b>: <%= @item.weight.nil? ? 'N/A' : @item.weight %> lbs.
 </p>
 
-<p>
-  <b>Active</b>: <%= @item.active ? 'Yes' : 'No' %>
-</p>
+<% if logged_in? %>
+  <% unless current_user.role?(:customer) %>
+    <p>
+      <b>Inventory Level</b>: <%= @item.inventory_level.nil? ? 'N/A' : @item.inventory_level %>
+    </p>
+
+    <p>
+      <b>Reorder Level</b>: <%= @item.reorder_level.nil? ? 'N/A' : @item.reorder_level %>
+    </p>
+
+    <p>
+      <b>Active</b>: <%= @item.active ? 'Yes' : 'No' %>
+    </p>
+  <% end %>
+<% end %>

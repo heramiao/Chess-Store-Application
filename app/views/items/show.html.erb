@@ -4,12 +4,18 @@
     <%= render :partial => "item_details" %>
   </div>
   <div class="small-5 columns">
-    <% unless logged_in? && current_user.role?(:shipper) %>
-      <%= render :partial => "price_history" unless @price_history.empty?%>
+    <% if logged_in? %>
+    <% unless current_user.role?(:shipper) || current_user.role?(:customer) %>
+      <%= render :partial => "price_history" unless @price_history.empty? %>
     <% end %>
-    <%= render :partial => "similar_items" unless @similar_items.empty?%>
+    <% unless current_user.role?(:customer) %>
+      <%= render :partial => "similar_items" unless @similar_items.empty? %>
+    <% end %>
+    <% end %>
   </div>
 </div>
 
+<% if logged_in? && (current_user.role?(:admin) || current_user.role?(:manager)) %>
 <!-- Add buttons to list all, edit project or destroy object -->
-<%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>
+  <%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>
+<% end %>

@@ -12,6 +12,7 @@ class Ability
       can :show, User do |u|
         u.id == user.id
       end
+
       # they can update their own profile
       can :edit_current_user, User 
 
@@ -50,8 +51,36 @@ class Ability
       # they can add purchases to the system
       can :create, Purchase 
 
+    elsif user.role? :customer
+      # they can read their own profile
+      can :show, User do |u|
+        u.id == user.id
+      end
+
+      # they can update their own profile
+      can :edit_current_user, User 
+
+      # they can place new orders
+      can :create, Order
+
+      # they can cancel unshipped orders
+      can :destroy, Order
+
+      # they can read info about items
+      can :read, Item 
+
+      # they can see list of past orders/order items
+      can :read, Order
+      can :read, OrderItem
+
+      # they can add schools to the database
+      can :create, School
+
     else
       can :read, :all
+
+      # they can create a customer account
+      can :create, User
     end
 
   end

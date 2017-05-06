@@ -5,9 +5,11 @@
       <tr>
         <th width="300">Name</th>
         <th width="100">Price</th>
-        <th width="100">Inventory</th>
-        <th></th>
-        <th></th>
+        <% if logged_in? && !current_user.role?(:customer) %>
+          <th width="100">Inventory</th>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -15,12 +17,15 @@
         <tr>
           <td><%= link_to item.name, item_path(item) %></td>
           <td><%= number_to_currency item.current_price %></td>
-          <td><%= item.inventory_level %></td>
-          <td><%#= link_to "Make Inactive", edit_item_path(item, active: false) %></td>
-          <td><%= link_to(edit_item_path(item, active: false), class: 'button tiny radius secondary') do %>
-              &nbsp;Make Inactive
-              <% end %></td>
-          <td><%= link_to "Edit", edit_item_path(item) %></td>
+          <% if logged_in? && !current_user.role?(:customer) %>
+            <td><%= item.inventory_level %></td>
+          <% end %>
+          <% if logged_in? && (current_user.role?(:admin) || current_user.role?(:manager)) %>
+            <td><%= link_to(edit_item_path(item, active: false), class: 'button tiny radius secondary') do %>
+                &nbsp;Make Inactive
+                <% end %></td>
+            <td><%= link_to "Edit", edit_item_path(item), class: 'button tiny radius secondary' %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
