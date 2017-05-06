@@ -5,7 +5,15 @@
 		<%= f.input :first_name %>
 		<%= f.input :last_name %>
 		<%= f.input :email %>
-        <%= f.input :phone %>
+    <%= f.input :phone %>
+
+    <% if logged_in? && current_user.role?(:admin) %>
+      <%= f.input :role, collection: User::ROLES, include_blank: true, prompt: "Select a role" %>
+    <% elsif logged_in? && current_user.role?(:manager) %>
+      <%= f.input :role, collection: User::EMPLOYEE_ROLES, include_blank: true, prompt: "Select a role" %>
+    <% else %>
+      <%= f.input :role, :as => :hidden, :input_html => {value: :customer} %>
+    <% end %>
 		
 		<%= f.input :password %>
 		<%= f.input :password_confirmation %>
