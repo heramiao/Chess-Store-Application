@@ -2,6 +2,8 @@
     <%= render partial: "home/dashboard_structure", locals:{array: @unshipped_orders, title: "Unshipped Orders"} %>
 <% elsif logged_in? && current_user.role?(:manager) %>
     <%= render partial: "home/dashboard_with_sidebar_structure", locals:{array: @need_reorder, title: "Need Reorder Items"} %>
+<% elsif logged_in? && current_user.role?(:admin) %>
+    <%= render partial: "home/admin_dashboard" %>
 <% else %>
     <%= render partial: "home/general_home" %>
 <% end %>

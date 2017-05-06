@@ -1,0 +1,24 @@
+<h3>Welcome <%= current_user.first_name %></h3>
+<br>
+<% if @need_reorder.empty? %>
+    <h4>There are no reorder items at this time</h4>
+<% else %>
+    <div class="row">
+        <div class="small-8 columns">
+            <h5>Need Reorder Items</h5>
+            <%= render partial: "home/reorder_list"%>
+        </div>
+    </div>
+<% end %>
+
+<% if @unshipped_orders.empty? %>
+    <h4>There are no unshipped orders at this time</h4>
+<% else %>
+    <div class="row">
+        <div class="small-8 columns">
+            <h5>Unshipped Orders</h5>
+            <%= render partial: "home/unshipped_list" %>
+        </div>
+    </div>
+<% end %>
+
