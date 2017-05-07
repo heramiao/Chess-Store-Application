@@ -21,10 +21,16 @@ class UsersController < ApplicationController
     end
 
     def edit
-        if logged_in?
-            @user = current_user
-        else
-            redirect_to home_path, notice: "Do not have access to edit user"
+        # Handle shortcut deactivations
+        unless params[:status].nil?
+        if params[:status].match(/deactivate/) # == 'deactivate_prj' || params[:status] == 'deactivate_asgn'
+            @user.update_attribute(:active, false)
+            flash[:notice] = "#{@user.name} was made inactive."
+        elsif params[:status].match(/activate/) # == 'activate_prj' || params[:status] == 'activate_asgn'
+            @user.update_attribute(:active, true)
+            flash[:notice] = "#{@user.name} was made active."
+        end
+        redirect_to employee_index_path if params[:status].match(/_user/)
         end
     end 
 

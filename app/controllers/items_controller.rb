@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
         flash[:notice] = "#{@item.name} was made active."
       end
       redirect_to items_path if params[:status].match(/_item/)
-      #redirect_to items_path if params[:status].match(/activate/)
     end
   end
 

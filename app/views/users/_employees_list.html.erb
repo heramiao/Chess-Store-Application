@@ -24,7 +24,7 @@
                 <td><%= active.phone %></td>
                 <td><%= active.username %></td>
                 <td><%= active.role %></td>
-                <td><%= link_to(edit_user_path(active, active: false), class: 'button tiny radius secondary') do %>
+                <td><%= link_to(edit_user_path(active, status: 'deactivate_user'), class: 'button tiny radius secondary') do %>
                         &nbsp;Make Inactive
                         <% end %></td>
                 <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%>
@@ -57,8 +57,8 @@
                 <td><%= inactive.phone %></td>
                 <td><%= inactive.username %></td>
                 <td><%= inactive.role %></td>
-                <td><%= link_to(edit_school_path(inactive, active: false), class: 'button tiny radius secondary') do %>
-                        &nbsp;Make Inactive
+                <td><%= link_to(edit_user_path(inactive, status: 'activate_user'), class: 'button tiny radius secondary') do %>
+                        &nbsp;Make Active
                         <% end %></td>
                 <td><%= link_to "Edit", edit_user_path(inactive), class: 'button tiny radius secondary' %>
                 </tr>
