@@ -40,6 +40,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # Handle shortcut deactivations
+    unless params[:status].nil?
+      if params[:status].match(/deactivate/) # == 'deactivate_prj' || params[:status] == 'deactivate_asgn'
+        @item.update_attribute(:active, false)
+        flash[:notice] = "#{@item.name} was made inactive."
+      elsif params[:status].match(/activate/) # == 'activate_prj' || params[:status] == 'activate_asgn'
+        @item.update_attribute(:active, true)
+        flash[:notice] = "#{@item.name} was made active."
+      end
+      redirect_to items_path if params[:status].match(/_item/)
+      #redirect_to items_path if params[:status].match(/activate/)
+    end
   end
 
   def create

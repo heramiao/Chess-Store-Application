@@ -31,10 +31,11 @@ Rails.application.routes.draw do
   get 'item/pieces' => 'items#pieces', :as => :pieces
   get 'item/clocks' => 'items#clocks', :as => :clocks
   get 'item/supplies' => 'items#supplies', :as => :supplies
+
+  # Cart routes
+  get 'cart' => 'cart#index', as: :cart
   
   # Set the root url
   root :to => 'home#home'  
-
-
 
 end

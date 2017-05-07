@@ -15,7 +15,7 @@
           <td><%= link_to board.name, item_path(board) %></td>
           <td><%= number_to_currency board.current_price %></td>
           <td><input type="integer"></td>
-          <td><%= link_to "Add to cart", class: 'button tiny radius secondary'%>
+          <td><%= link_to "Add to cart", cart_path %></td>
         </tr>
       <% end %>
     </tbody>

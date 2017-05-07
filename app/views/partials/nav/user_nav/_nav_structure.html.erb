@@ -1,8 +1,8 @@
 <nav> 
   <div class="nav-wrapper">
   <%#<nav class="top-bar" data-topbar role="navigation"> %>
-    <section class="top-bar-section">
-      <ul class="right">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
 
         <!-- render partials -->
         <% if logged_in? && current_user.role?(:shipper) %>
@@ -17,7 +17,6 @@
           <%= render partial: "partials/nav/user_nav/guest" %>
         <% end %>
         
-      </ul>
-    </section>
+    </ul>
   </div>
 </nav>
