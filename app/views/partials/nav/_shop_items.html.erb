@@ -1,9 +1,9 @@
-<li class="has-dropdown">
-<%= link_to "Items", items_path %>
-<ul class="dropdown">
+<ul id="shop_items_dropdown" class="dropdown-content">
 <li><%= link_to "Boards", boards_path %></li>
 <li><%= link_to "Pieces", pieces_path %></li>
 <li><%= link_to "Clocks", clocks_path %></li>
 <li><%= link_to "Supplies", supplies_path %></li>
+<li><%= link_to "View All", items_path %></li>
 </ul>
-</li>
+
+<li><a class="dropdown-button" data-activates="shop_items_dropdown">Items<i class="material-icons right">arrow_drop_down</i></a></li>

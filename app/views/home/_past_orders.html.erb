@@ -3,8 +3,8 @@
         <% unless @past_orders.empty? %>       
         <div id="past_orders">   
             <ul class="collapsible" data-collapsible="accordion">
-            <li>
             <% @past_orders.each do |order| %>
+                <li>
                 <div class="collapsible-header">
                     <i class="material-icons green darken-1">view_list</i>
                     <h7><%= "Order Placed on #{order.date}" %></h7>
@@ -26,10 +26,10 @@
                             <td><%= link_to order_item.item.name, item_path(order_item.item) %></td>
                             <td><%= order_item.quantity %></td>
                             <td><%= order_item.subtotal %></td>
-                            <% if order_item.shipped %>
-                                <td>Shipped</td>
-                            <% else %>
+                            <% if order_item.shipped_on.nil? %>
                                 <td>Unshipped</td>
+                            <% else %>
+                                <td>Shipped</td>
                             <% end %>
                             </tr>
                         <% end %>
@@ -37,8 +37,8 @@
                     </table>
                     </span>
                 </div>
+                </li>
             <% end %>
-            <li>
             </ul>
         </div>
         <% end %>

@@ -16,7 +16,7 @@
             <tr>
             <td><%= order.date.strftime('%m/%d/%y') %></td>
             <td><%= link_to order.school.name, school_path(order.school) %></td>
-            <td><%= link_to "Details", order_path(order) %></td>
+            <td><%= link_to "Details", order_path(order), class: "waves-effect waves-light btn green darken-1" %></td>
             </tr>
         <% end %>
         </tbody>

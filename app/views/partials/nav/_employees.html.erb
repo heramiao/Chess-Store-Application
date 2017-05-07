@@ -1,7 +1,6 @@
-<li class="has-dropdown">
-<%= link_to "Employees", employee_index_path %>
-<ul class="dropdown">
-<li><%= link_to "Add Employee", new_user_path %></li>
-<li><%= link_to "View All", employee_index_path %></li>
+<ul id="employee_dropdown" class="dropdown-content">
+    <li><%= link_to "Add Employee", new_user_path %></li>
+    <li><%= link_to "View All", employee_index_path %></li>
 </ul>
-</li>
+
+<li><a class="dropdown-button" data-activates="employee_dropdown">Employees<i class="material-icons right">arrow_drop_down</i></a></li>

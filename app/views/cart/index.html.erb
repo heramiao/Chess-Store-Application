@@ -1,1 +1,21 @@
-Nothing to see here people
+<% if @cart_items.empty? %>
+    <h5>Cart is empty right now</h5>
+<% else %>
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @cart_items.each do |item| %>
+                <tr>
+                    <td>item.first</td>
+                    <td>item.last</td>
+                <tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
+

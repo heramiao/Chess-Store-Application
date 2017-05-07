@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   # Set the root url
   root :to => 'home#home'  
 
+  # Cart routes 
+  get 'cart/add_to_cart/:id' => 'cart#add_to_cart', :as => :add_to_cart
+
 end

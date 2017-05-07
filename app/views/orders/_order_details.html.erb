@@ -6,8 +6,6 @@
   </div>
 </div>
 
-<br>
-
 <p>
   <b>Date Placed</b>: <%= @order.date %>
 </p>
@@ -25,10 +23,12 @@
 </p>
 
 <p>
-  <b>Order Items</b>:
-  <table>
+  <div class="col s4">
+  <table class="striped">
+    <tr><th>Order Items:</th></tr>
     <% @order_items.each do |order_item| %>
       <tr><td><%= link_to order_item.item.name, item_path(order_item.item) %></td></tr>
     <% end %>
   </table>
+  </div>
 </p>

@@ -1,9 +1,8 @@
-<li class="has-dropdown">
-<%= link_to "Edit" %>
-<ul class="dropdown">
-<li><%= link_to "Edit Customer", customer_index_path %></li>
-<li><%= link_to "Edit Employee", employee_index_path %><li>
-<li><%= link_to "Edit School", schools_path %></li>
-<li><%= link_to "Edit Item", items_path %></li>
+<ul id="edit_dropdown" class="dropdown-content">
+    <li><%= link_to "Edit Customer", customer_index_path %></li>
+    <li><%= link_to "Edit Employee", employee_index_path %><li>
+    <li><%= link_to "Edit School", schools_path %></li>
+    <li><%= link_to "Edit Item", items_path %></li>
 </ul>
-</li>
+
+<li><a class="dropdown-button" data-activates="edit_dropdown"><%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>

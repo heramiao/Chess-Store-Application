@@ -8,7 +8,7 @@
       <li><%= image_tag 'img_not_available.png' %></li>
       <li><%= link_to board.name, item_path(board) %></li>
       <li><%= number_to_currency board.current_price %></li>
-      <li>Quantity: <input type="integer">&nbsp&nbsp&nbsp<%#= link_to "Add to cart", cart_path %></li>
+      <li><%= link_to "Add to cart", add_to_cart_path(board) %></li>
       <br>
       <br>
     <% end %>

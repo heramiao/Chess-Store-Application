@@ -1,69 +1,79 @@
-<% if @active_employees.empty? && @inactive_employees.empty?%>
-    <h3>There are no available employees at this time</h3>
-<% else %>
-    <% unless @active_employees.empty? %>
-        <h4>Active Employees</h4>
-        <table class="striped">
-            <thead>
-            <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Username</th>
-            <th>Role</th>
-            <th></th>
-            <th></th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <% @active_employees.each do |active| %>
+<div id="employees_list">  
+    <% if @active_employees.empty? %>
+        <h5>There are no available active employees at this time</h5>
+    <% else %>
+        <div class="row">
+        <div class="col s8">
+            <h5>Active Employees</h5>
+            <table class="striped">
+                <thead>
                 <tr>
-                <td><%= active.proper_name %></td>
-                <td><%= active.email %></td>
-                <td><%= active.phone %></td>
-                <td><%= active.username %></td>
-                <td><%= active.role %></td>
-                <td><%= link_to(edit_user_path(active, status: 'deactivate_user'), class: 'button tiny radius secondary') do %>
-                        &nbsp;Make Inactive
-                        <% end %></td>
-                <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th></th>
+                <th></th>
                 </tr>
-            <% end %>
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                <% @active_employees.each do |active| %>
+                    <tr>
+                    <td><%= active.proper_name %></td>
+                    <td><%= active.email %></td>
+                    <td><%= active.phone %></td>
+                    <td><%= active.username %></td>
+                    <td><%= active.role %></td>
+                    <td><%= link_to(edit_user_path(active, status: 'deactivate_user'), class: "waves-effect waves-light btn green darken-1") do %>
+                            &nbsp;Make Inactive
+                            <% end %></td>
+                    <td><%= link_to "Edit", edit_user_path(active), class: "waves-effect waves-light btn green darken-1"%>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+        </div>
     <% end %>
 
-    <% unless @inactive_employees.empty? %>
-        <h4>Inactive Employees</h4>
-        <table class="striped">
-            <thead>
-            <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Username</th>
-            <th>Role</th>
-            <th></th>
-            <th></th>
-            </tr>
-            <thead>
-
-            <tbody>
-            <% @inactive_employees.each do |inactive| %>
+    <% if @inactive_employees.empty? %>
+        <h5>There are no available inactive employees at this time</h5>
+    <% else %>
+        <div class="row">
+        <div class="col s8">
+            <h4>Inactive Employees</h4>
+            <table class="striped">
+                <thead>
                 <tr>
-                <td><%= inactive.proper_name %></td>
-                <td><%= inactive.email %></td>
-                <td><%= inactive.phone %></td>
-                <td><%= inactive.username %></td>
-                <td><%= inactive.role %></td>
-                <td><%= link_to(edit_user_path(inactive, status: 'activate_user'), class: 'button tiny radius secondary') do %>
-                        &nbsp;Make Active
-                        <% end %></td>
-                <td><%= link_to "Edit", edit_user_path(inactive), class: 'button tiny radius secondary' %>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th></th>
+                <th></th>
                 </tr>
-            <% end %>
-            </tbody>
-        </table>
+                <thead>
+
+                <tbody>
+                <% @inactive_employees.each do |inactive| %>
+                    <tr>
+                    <td><%= inactive.proper_name %></td>
+                    <td><%= inactive.email %></td>
+                    <td><%= inactive.phone %></td>
+                    <td><%= inactive.username %></td>
+                    <td><%= inactive.role %></td>
+                    <td><%= link_to(edit_user_path(inactive, status: 'activate_user'), class: "waves-effect waves-light btn green darken-1") do %>
+                            &nbsp;Make Active
+                            <% end %></td>
+                    <td><%= link_to "Edit", edit_user_path(inactive), class: "waves-effect waves-light btn green darken-1" %>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+        </div>
     <% end %>
-<% end %>
+</div>

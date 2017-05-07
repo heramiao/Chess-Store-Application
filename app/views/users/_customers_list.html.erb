@@ -25,10 +25,10 @@
                 <td><%= active.phone %></td>
                 <td><%= active.username %></td>
                 <% if logged_in? && current_user.role?(:admin) %>
-                    <td><%= link_to(edit_user_path(active, active: false), class: 'button tiny radius secondary') do %>
+                    <td><%= link_to(edit_user_path(active, active: false), class: "waves-effect waves-light btn green darken-1") do %>
                         &nbsp;Make Inactive
                         <% end %></td>
-                    <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%></td>
+                    <td><%= link_to "Edit", edit_user_path(active), class: "waves-effect waves-light btn green darken-1"%></td>
                 <% end %>
                 </tr>
             <% end %>
@@ -60,10 +60,10 @@
                 <td><%= inactive.phone %></td>
                 <td><%= inactive.username %></td>
                 <% if logged_in? && current_user.role?(:admin) %>
-                    <td><%= link_to(edit_user_path(inactive, active: false), class: 'button tiny radius secondary') do %>
+                    <td><%= link_to(edit_user_path(inactive, active: false), class: "waves-effect waves-light btn green darken-1") do %>
                         &nbsp;Make Inactive
                         <% end %></td>
-                    <td><%= link_to "Edit", edit_user_path(active), class: 'button tiny radius secondary'%></td>
+                    <td><%= link_to "Edit", edit_user_path(active), class: "waves-effect waves-light btn green darken-1"%></td>
                 <% end %>
                 </tr>
             <% end %>

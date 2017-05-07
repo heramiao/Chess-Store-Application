@@ -97,3 +97,7 @@ footer a:hover {
   border: 1px solid black;
 }
 
+.pagination ul > li > a, .pagination ul > li > span {
+  border-left-width: 1px;
+}
+

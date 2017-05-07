@@ -1,8 +1,7 @@
-<li class="has-dropdown">
-<%= link_to "Add New" %>
-<ul class="dropdown">
-<li><%= link_to "Add User", new_user_path %></li>
-<li><%= link_to "Add School", new_school_path %></li>
-<li><%= link_to "Add Item", new_item_path %></li>
+<ul id="add_new_dropdown" class="dropdown-content">
+    <li><%= link_to "Add User", new_user_path %></li>
+    <li><%= link_to "Add School", new_school_path %></li>
+    <li><%= link_to "Add Item", new_item_path %></li>
 </ul>
-</li>
+
+<li><a class="dropdown-button" data-activates="add_new_dropdown">Add New<i class="material-icons right">arrow_drop_down</i></a></li>

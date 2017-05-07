@@ -4,8 +4,8 @@
 
             <div id="unshipped_list">   
                 <ul class="collapsible" data-collapsible="accordion">
-                    <li>  
                     <% @unshipped_orders.each do |us_order| %>
+                        <li>
                         <div class="collapsible-header">
                             <i class="material-icons green darken-1">view_list</i>
                             <h7><%= "Order placed on #{us_order.date}" %></h7>
@@ -25,8 +25,8 @@
                             </table>
                             </span>
                         </div>
+                        </li>
                     <% end %>
-                    </li>
                 </ul>
             </div>
         <% end %>
