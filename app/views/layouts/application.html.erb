@@ -20,12 +20,15 @@
   </head>
 
   <body>
-    <div id="title_area">
-      <%= link_to image_tag('chess_store_title.png'), home_path %>
-    </div>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <!-- navigation bar -->
-    <%= render partial: "partials/nav/user_nav/nav_structure" %>
+    <nav>
+      <%= render partial: "partials/nav/user_nav/nav_structure" %>
+    </nav>
 
     <div id="login">
       <% if logged_in? %>
@@ -36,22 +39,24 @@
         <%= link_to 'Login', login_path %>
       <% end %>
     </div>
+
+    <div class="container">
     
-    <div class="row">
-      <div class="small-12 columns" id="main_content">
-        <%= render :partial => "partials/flash" %>
-        <%= yield %>
+      <div class="row">
+        <div class="small-12 columns" id="main_content">
+          <%= render :partial => "partials/flash" %>
+          <%= yield %>
+        </div>
       </div>
+
     </div>
 
-    <footer>
-      <div class="small-12 columns" id="footer">
-        <%= render partial: 'partials/footer' %>
-      </div>
-    </footer> 
-
-    <%= javascript_include_tag "application" %>
-
   </body>
+
+  <footer>
+      <%= render partial: 'partials/footer' %>
+  </footer> 
+
+  <%= javascript_include_tag "application" %>
   
 </html>

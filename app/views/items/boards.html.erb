@@ -1,23 +1,16 @@
-<% unless @boards.empty? %>
-  <h5>Boards</h5>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th width="300">Name</th>
-        <th width="100">Price</th>
-        <th>Quantity</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @boards.each do |board| %>
-        <tr>
-          <td><%= link_to board.name, item_path(board) %></td>
-          <td><%= number_to_currency board.current_price %></td>
-          <td><input type="integer"></td>
-          <td><%= link_to "Add to cart", cart_path %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% if @boards.empty? %>
+  <h5>There are no available boards at this time</h5>
+<% else %>
+  <h4>Boards</h4>
+  <br>
+  <ul class="shop_item">
+    <% @boards.each do |board| %>
+      <li><%= image_tag 'img_not_available.png' %></li>
+      <li><%= link_to board.name, item_path(board) %></li>
+      <li><%= number_to_currency board.current_price %></li>
+      <li>Quantity: <input type="integer">&nbsp&nbsp&nbsp<%#= link_to "Add to cart", cart_path %></li>
+      <br>
+      <br>
+    <% end %>
+  </ul>
 <% end %>

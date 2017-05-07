@@ -16,98 +16,80 @@
  *= require simple_form
  */
 
- .tl_name {
-  width: 225px;
-  display: block;
-  position: absolute;
+#container {
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-.tl_date {
-  width: 65px;
-  display: block;
-  position: absolute;
-  margin-left: 250px;
+.shop_item {
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3; /*3 in those rules is just placeholder -- can be anything*/
 }
 
-.tl_controls {
-  width:  68px;
-  display: block;
-  margin-left: 330px;
+nav {
+  background-color: #000000;
+  margin-bottom: 40px;
 }
 
-.project_item {
-  background-color: #d1ecfb;
-  width: 400px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid blue;
-  margin-top: 5px;
-  margin-bottom: 10px;
+nav .nav {
+  background-color: #000000;
+  margin-bottom: 30px; 
+  height: 90px;
 }
 
-.supertiny {
-  font-size:5px;
-  text-decoration:none;
-}
-
-.add_link {
-  font-size:75%;
-  font-style: normal;
-  font-weight: normal;
-}
-
-#title_area {
-  background-color: #ffffff;
-}
-
-#main_content {
-  margin-top: 10px;
-}
-
-#footer {
-  margin-top: 15px;
-  padding-top: 0px;
+footer {
+  margin-top: 30px;
+  padding-top: 20px;
   padding-bottom: 15px;
-  background-color:#ffffff;
-  color: #6493ba;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-family: serif;
   text-align: center;
 }
 
-#footer a {
-  color: #7f9eb8;
-  text-decoration: none;
+footer a {
+  color: #FFFFFF;
+  font-size: 18px;
+  font-family: serif;
 }
 
-#footer a:hover {
-  color: #7f9eb8;
+footer a:hover {
+  color: #FFFFFF;
   text-decoration: underline;
 }
 
-#copy {
-  font-size: 85%;
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
 }
 
-table {
-  border-collapse:collapse;
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
 }
 
-table th.centered, table td.centered {
-    text-align: center;
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
 }
 
-.note {
-  font-style: italic;
-  font-size: 80%;
-}
-li.well {
-  list-style-type: none;
-  margin-left: -10px;
-}
-
-.pagination ul > li > a, .pagination ul > li > span {
-  border-left-width: 1px;
+#side_nav {
+  float: right;
+  margin-top: 10%;
+	padding: 2em;
+	font-size: 1em;
+	border: 1.5px solid black;
 }
 
-label {
-  padding-right: 4px;
+#side_nav a {
+  font-size: 18px;
+  font-family: serif;
 }
+
+#side_nav a:hover {
+  text-decoration: underline;
+}
+

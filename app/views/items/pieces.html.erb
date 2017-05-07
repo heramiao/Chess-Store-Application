@@ -1,19 +1,16 @@
-<% unless @pieces.empty? %>
-  <h5>Pieces</h5>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th width="300">Name</th>
-        <th width="100">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @pieces.each do |piece| %>
-        <tr>
-          <td><%= link_to piece.name, item_path(piece) %></td>
-          <td><%= number_to_currency piece.current_price %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% if @pieces.empty? %>
+  <h5>There are no available pieces at this time</h5>
+<% else %>
+  <h4>Pieces</h4>
+  <br>
+  <ul class="shop_item">
+    <% @pieces.each do |piece| %>
+      <li><%= image_tag 'img_not_available.png' %></li>
+      <li><%= link_to piece.name, item_path(piece) %></li>
+      <li><%= number_to_currency piece.current_price %></li>
+      <li>Quantity: <input type="integer">&nbsp&nbsp&nbsp<%#= link_to "Add to cart", cart_path %></li>
+      <br>
+      <br>
+    <% end %>
+  </ul>
 <% end %>

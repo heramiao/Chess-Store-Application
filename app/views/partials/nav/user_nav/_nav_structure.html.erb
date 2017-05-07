@@ -1,22 +1,20 @@
-<nav> 
-  <div class="nav-wrapper">
-  <%#<nav class="top-bar" data-topbar role="navigation"> %>
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
+<div class="nav">
+<%#<nav class="top-bar" data-topbar role="navigation"> %>
+  <a href="#!" class="brand-logo">Logo</a>
+  <ul class="right hide-on-med-and-down">
 
-        <!-- render partials -->
-        <% if logged_in? && current_user.role?(:shipper) %>
-          <%= render partial: "partials/nav/user_nav/shipper" %>
-        <% elsif logged_in? && current_user.role?(:manager) %>
-          <%= render partial: "partials/nav/user_nav/manager" %>
-        <% elsif logged_in? && current_user.role?(:admin) %>
-          <%= render partial: "partials/nav/user_nav/admin" %>
-        <% elsif logged_in? && current_user.role?(:customer) %>
-          <%= render partial: "partials/nav/user_nav/customer" %>
-        <% else %>
-          <%= render partial: "partials/nav/user_nav/guest" %>
-        <% end %>
-        
-    </ul>
-  </div>
-</nav>
+      <!-- render partials -->
+      <% if logged_in? && current_user.role?(:shipper) %>
+        <%= render partial: "partials/nav/user_nav/shipper" %>
+      <% elsif logged_in? && current_user.role?(:manager) %>
+        <%= render partial: "partials/nav/user_nav/manager" %>
+      <% elsif logged_in? && current_user.role?(:admin) %>
+        <%= render partial: "partials/nav/user_nav/admin" %>
+      <% elsif logged_in? && current_user.role?(:customer) %>
+        <%= render partial: "partials/nav/user_nav/customer" %>
+      <% else %>
+        <%= render partial: "partials/nav/user_nav/guest" %>
+      <% end %>
+      
+  </ul>
+</div>
