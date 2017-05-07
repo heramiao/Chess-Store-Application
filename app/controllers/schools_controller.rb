@@ -18,6 +18,16 @@ class SchoolsController < ApplicationController
     end
 
     def create
+        @school = School.new(school_params)
+
+        respond_to do |format|
+            if @school.save
+                format.html { redirect_to @school, notice: 'School was successfully created.' }
+                format.js 
+            else
+                render action: 'new'
+            end
+        end
     end
 
     def update

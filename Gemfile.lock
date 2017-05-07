@@ -210,6 +210,8 @@ GEM
     shoulda-context (1.2.2)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    simple-form-datepicker (0.1.3)
+      simple_form
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -291,6 +293,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   shoulda
   shoulda-matchers
+  simple-form-datepicker
   simple_form
   simplecov
   single_test

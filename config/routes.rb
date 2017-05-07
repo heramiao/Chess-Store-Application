@@ -38,5 +38,6 @@ Rails.application.routes.draw do
 
   # Cart routes 
   get 'cart/add_to_cart/:id' => 'cart#add_to_cart', :as => :add_to_cart
+  get 'cart/remove_from_cart/:id' => 'cart#remove_from_cart', :as => :remove_from_cart
 
 end

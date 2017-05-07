@@ -19,6 +19,13 @@ class OrdersController < ApplicationController
     end
 
     def create
+        @order = Order.new(order_params)
+    
+        if @order.save!
+            redirect_to home_path, notice: "Successfully created #{@item.name}."
+        else
+            render action: 'new'
+        end
     end
 
     def update 
@@ -28,6 +35,10 @@ class OrdersController < ApplicationController
     end
 
     private
+    def order_params
+        params.require(:order).permit(:school_id, :user_id, :date, :grand_total, :credit_card_number, :expiration_year, :expiration_month, :payment_receipt)
+    end
+
     def set_order
       @order = Order.find(params[:id])
     end

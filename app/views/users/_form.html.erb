@@ -6,6 +6,8 @@
 		<%= f.input :last_name %>
 		<%= f.input :email %>
     <%= f.input :phone %>
+    <%= link_to "Add School", new_school_path %>
+    <%= f.input :username %>
 
     <% if logged_in? && current_user.role?(:admin) %>
       <%= f.input :role, collection: User::ROLES, include_blank: true, prompt: "Select a role" %>

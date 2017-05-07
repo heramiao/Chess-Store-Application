@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
   belongs_to :school
   belongs_to :user
+  accepts_nested_attributes_for :school
 
   # Virtual attributes (non-saved)
   attr_accessor :credit_card_number
@@ -82,7 +83,7 @@ class Order < ActiveRecord::Base
   end
 
   def credit_card
-    CreditCard.new(self.credit_card_number, self.expiration_year, self.expiration_month)
+    CreditCard.new(self.credit_card_number, self.expiration_year.to_i, self.expiration_month.to_i)
   end
 
   def credit_card_number_is_valid

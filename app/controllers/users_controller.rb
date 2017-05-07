@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     end 
 
     def edit_current_user
+        puts "edit_current_user"
         if logged_in?
             @user = current_user
         else
@@ -69,7 +70,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :passoword_confirmation, :role, :active)
+        params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :password_confirmation, :role, :active)
     end
 
     def set_user 

@@ -1,0 +1,45 @@
+<%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Order</legend>
+
+    <div class="row">
+      <div class="input-field col s6">  
+      <%= f.input :school_id, collection: School.active.alphabetical.all, include_blank: true %>
+      <%= "If school not in system, " %>
+      </div>
+    </div>
+
+      <%= link_to(new_school_path(school_id: @order.school_id), id: 'new_school_link', class: 'button tiny radius', remote: true) do %>
+        Add School
+      <% end %>
+
+    <div class="row">
+      <div class="input-field col s6">
+		    <%= f.input :user_id, :as => :hidden, :input_html => {value: :user_id} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :credit_card_number %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :expiration_year %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :expiration_month %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'button radius' %>
+      <%= link_to 'Cancel', :back, :class => 'button alert radius' %>
+    </div>
+  </fieldset>
+<% end %>

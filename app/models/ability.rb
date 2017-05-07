@@ -59,6 +59,7 @@ class Ability
 
       # they can update their own profile
       can :edit_current_user, User 
+      can :update, User
 
       # they can place new orders
       can :create, Order
