@@ -1,17 +1,70 @@
 <%= simple_form_for @item, html: { class: 'form-horizontal', multipart: true } do |f| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h5><i class="material-icons red">error</i>
+      <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h5>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Item</legend>
 
-    <%= f.input :name, input_html: {class: "avg"} %>
-    <%= f.input :description, input_html: { :rows => 4, class: "avg" } %>
-    <%= f.input :category, collection: Item::CATEGORIES, include_blank: true, input_html: {class: "avg"} %>
-    <%= f.input :color, input_html: {class: "avg"} %>
-    <%= f.input :weight, input_html: {class: "avg"} %>
+    <div class="row">
+      <div class="input-field col s6">    
+        <%= f.input :name, input_html: {class: "avg"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :description, input_html: { :rows => 4, class: "avg" } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :category, collection: Item::CATEGORIES, include_blank: true, input_html: {class: "avg"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :color, input_html: {class: "avg"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :weight, input_html: {class: "avg"} %>
+      </div>
+    </div>
+
     <% if controller.action_name == "new" %>
-      <%= f.input :inventory_level, input_html: {class: "avg"} %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.input :inventory_level, input_html: {class: "avg"} %>
+        </div>
+      </div>
     <% end %>
-    <%= f.input :reorder_level, input_html: {class: "avg"} %>
-    <%= f.input :active %>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :reorder_level, input_html: {class: "avg"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.input :active %>
+      </div>
+    </div>
 
 
     <div class="form-actions">

@@ -14,11 +14,19 @@
                 <td><%= link_to item.name, item_path(item) %></td>
                 <td><%= item.inventory_level %></td>
                 <td><%= item.reorder_level %></td>
+                <td>
+                        <div id="modal1" class="modal">
+                            <%= link_to "Purchase", new_purchase_path, class: "waves-effect waves-light btn" %>
+                        </div>
+                </td>
+
                 <td><%= link_to(new_purchase_path(item_id: item.id), id: 'new purchase link', class: 'button alert radius', remote: true) do %>
                     Purchase 
                     <% end %></td>
+                
             </tr>
             <% end %>
         </tbody>
     </table>
 </div>
+

@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'font-awesome-sass-rails', '3.0.2.2'
 gem 'carrierwave', '1.0.0'
+gem 'materialize-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
