@@ -25,16 +25,6 @@
       <%= render partial: "partials/nav/user_nav/nav_structure" %>
     </div>
 
-    <div id="login">
-      <% if logged_in? %>
-          <%= link_to 'Logout', logout_path %>
-          <br>
-          [<%= current_user.proper_name %>:<%= current_user.role %>]
-      <% else %>
-        <%= link_to 'Login', login_path %>
-      <% end %>
-    </div>
-
     <div id="container">
       <%= render :partial => "partials/flash" %>
       <%= yield %>
