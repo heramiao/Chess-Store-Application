@@ -3,14 +3,22 @@
 <% else %>
   <h4>Supplies</h4>
   <br>
-  <ul class="shop_item">
-    <% @supplies.each do |supply| %>
-      <li><%= image_tag 'img_not_available.png' %></li>
-      <li><%= link_to supply.name, item_path(supply) %></li>
-      <li><%= number_to_currency supply.current_price %></li>
-      <li>Quantity: <input type="integer">&nbsp&nbsp&nbsp<%#= link_to "Add to cart", cart_path %></li>
-      <br>
-      <br>
-    <% end %>
-  </ul>
+  <% @supplies.each do |supply| %>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag 'img_not_available.png' %>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><%= link_to supply.name, item_path(supply) %></li>
+            <li><%= number_to_currency supply.current_price %></li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <%= link_to "Add to cart", add_to_cart_path(supply) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>

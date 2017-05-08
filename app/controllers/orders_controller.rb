@@ -21,8 +21,8 @@ class OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
     
-        if @order.save!
-            redirect_to home_path, notice: "Successfully created #{@item.name}."
+        if @order.save
+            redirect_to home_path, notice: "Successfully created order."
         else
             render action: 'new'
         end

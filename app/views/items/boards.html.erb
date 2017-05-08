@@ -3,14 +3,23 @@
 <% else %>
   <h4>Boards</h4>
   <br>
-  <ul class="shop_item">
-    <% @boards.each do |board| %>
-      <li><%= image_tag 'img_not_available.png' %></li>
-      <li><%= link_to board.name, item_path(board) %></li>
-      <li><%= number_to_currency board.current_price %></li>
-      <li><%= link_to "Add to cart", add_to_cart_path(board) %></li>
-      <br>
-      <br>
-    <% end %>
-  </ul>
+  <% @boards.each do |board| %>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag 'img_not_available.png' %>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><%= link_to board.name, item_path(board) %></li>
+            <li><%= number_to_currency board.current_price %></li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <%= link_to "Add to cart", add_to_cart_path(board) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
+    
