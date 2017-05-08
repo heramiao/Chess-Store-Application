@@ -15,12 +15,11 @@
     <%= f.input :username %>
 
     <% if logged_in? && current_user.role?(:admin) %>
-      <%= f.input :role, collection: User::ROLES, include_blank: true, prompt: "Select a role" %>
-      <%= f.input :active %>
-      <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :role, collection: User::ROLES, include_blank: true %>
+      <%= f.input :active, :as => :hidden, :input_html => {value: true} %>
     <% elsif logged_in? && current_user.role?(:manager) %>
-      <%= f.input :role, collection: User::EMPLOYEE_ROLES, include_blank: true, prompt: "Select a role" %>
-      <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :role, collection: User::EMPLOYEE_ROLES, include_blank: true %>
+      <%= f.input :active, :as => :hidden, :input_html => {value: true} %>
     <% else %>
       <%= f.input :role, :as => :hidden, :input_html => {value: :customer} %>
       <%= f.input :active, :as => :hidden, :input_html => {value: true} %>

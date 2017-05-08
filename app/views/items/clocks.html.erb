@@ -1,40 +1,42 @@
-<% if @clocks.empty? %>
-  <h5>There are no available clocks at this time</h5>
-<% else %>
-  <h4>Clocks</h4>
-  <br>    
-  <div class="col s8">
-  <% @clocks.each do |clock| %>
-    <div class="col s2 m4">
-      <div class="card">
-        <div class="card-image">
-          <%= image_tag 'img_not_available.png' %>
-        </div>
-        <div class="card-content">
-          <ul>
-            <li><%= link_to clock.name, item_path(clock) %></li>
-            <li><%= number_to_currency clock.current_price %></li>
-          </ul>
-        </div>
-        <div class="card-action">
-          <% if logged_in? %>
-            <%= link_to "Add to cart", add_to_cart_path(clock) %>
-          <% else %>
-            <%= link_to "Add to cart", new_user_path %>
-          <% end %>
+<div class="row"> 
+  <% if @clocks.empty? %>
+    <h5>There are no available clocks at this time</h5>
+  <% else %>
+    <h4>Clocks</h4>
+    <br>    
+    <div class="col s8">
+    <% @clocks.each do |clock| %>
+      <div class="col s2 m4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag 'img_not_available.png' %>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><%= link_to clock.name, item_path(clock) %></li>
+              <li><%= number_to_currency clock.current_price %></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <% if logged_in? %>
+              <%= link_to "Add to cart", add_to_cart_path(clock) %>
+            <% else %>
+              <%= link_to "Add to cart", new_user_path %>
+            <% end %>
+          </div>
         </div>
       </div>
+    <% end %>
     </div>
   <% end %>
-  </div>
-<% end %>
 
-<div id="side_nav_items">
-  <h5>Other Items</h5>
-  <ul>
-    <li><%= link_to "Boards", boards_path %></li>
-    <li><%= link_to "Pieces", pieces_path %></li>
-    <li><%= link_to "Supplies", supplies_path %></li>
-    <li><%= link_to "View All", items_path %></li>
-  </ul>
-</div> 
+  <div id="side_nav_items">
+    <h4>Other Items</h4>
+    <ul>
+      <li><%= link_to "Boards", boards_path %></li>
+      <li><%= link_to "Pieces", pieces_path %></li>
+      <li><%= link_to "Supplies", supplies_path %></li>
+      <li><%= link_to "View All", items_path %></li>
+    </ul>
+  </div> 
+</div>

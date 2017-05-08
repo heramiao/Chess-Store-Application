@@ -13,12 +13,21 @@
                         <div class="collapsible-body">
                             <span>
                             <table class="striped">
-                            <thead><tr><th></th><th></th></tr></thead>
+                            <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Address</th>
+                                <th>Shipping Status</th>
+                            </tr>
+                            </thead>
                             <tbody>
                             <% @unshipped_items.each do |us_item| %>
                                 <tr>
                                 <td><%= link_to us_item.item.name, item_path(us_item.item) %></td>
                                 <td><%= render partial: "partials/address_info", locals:{order: us_order} %></td>
+                                <td>
+                                    <%= link_to(image_tag("check_green.gif", border: 0), shipped_path(order_item_id: us_item.id), method: :patch) %>
+                                </td>
                                 </tr>
                             <% end %>
                             </tbody>

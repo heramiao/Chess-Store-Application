@@ -22,15 +22,15 @@
   margin-right: 8%;
 }
 
-nav {
+#nav {
   background-color: #000000;
-  margin-bottom: 40px;
 }
 
-nav .nav {
-  background-color: #000000;
-  margin-bottom: 30px; 
-  height: 90px;
+#nav .nav_links {
+  text-align: right;
+  margin-right: 50px;
+  font-family: serif;
+  font-size: 16px;
 }
 
 footer {
@@ -97,7 +97,7 @@ footer a:hover {
 
 .card {
   border: 1.5px solid black;
-  width: 170px;
+  width: 200px;
 }
 
 .card-content {
