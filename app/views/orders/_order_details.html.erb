@@ -1,4 +1,4 @@
-<%= link_to "<Back", :back, class: "waves-effect waves-light btn green darken-1"%>
+<%= link_to "<Back", :back, class: "waves-effect waves-light btn green darken-1" %>
 
 <div class="row">
   <div class="small-12 columns">
@@ -7,7 +7,7 @@
 </div>
 
 <p>
-  <b>Date Placed</b>: <%= @order.date %>
+  <b>Date Placed</b>: <%= @order.date.strftime('%m/%d/%y') %>
 </p>
 
 <p>
@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  <b>Grand Total</b>: <%= @order.grand_total.nil? ? 'N/A' : @order.grand_total %>
+  <b>Grand Total</b>: <%= @order.grand_total.nil? ? 'N/A' : number_to_currency(@order.grand_total) %>
 </p>
 
 <p>

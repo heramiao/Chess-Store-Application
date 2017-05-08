@@ -1,22 +1,21 @@
-<h4>Welcome <%= current_user.first_name %></h4>
-<br>
-<% if array.empty? %>
-    <h4>There are no <%= title %> at this time</h4>
-<% else %>
-    <div class="row">
+<div class="row">
+    <h4>Welcome <%= current_user.first_name %></h4>
+    <br>
+    <% if array.empty? %>
+        <h5>There are no <%= title %> at this time</h5>
+    <% else %>
         <div class="col s8">
             <h5><%= title %></h5>
             <% if current_user.role?(:manager) %>
                 <%= render partial: "manager_dashboard" %>
             <% end %>
         </div>
+    <% end %>
 
-        <div class="col s3 offset-s1">
-        <!-- render sidebar partials -->
-            <% if current_user.role?(:manager) %>
-                <%= render partial: "partials/sidebar/manager_sidebar" %>
-            <% end %>
-        </div>
-
+    <div class="col s4">
+    <!-- render sidebar partials -->
+        <% if current_user.role?(:manager) %>
+            <%= render partial: "partials/sidebar/manager_sidebar" %>
+        <% end %>
     </div>
-<% end %>
+</div>

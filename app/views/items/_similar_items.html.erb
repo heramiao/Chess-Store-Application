@@ -1,10 +1,8 @@
 <% unless @similar_items.empty? %>
-  <div id="side_nav">
+  <div id="similar_items">
     <h4>Similar Items</h4>
-    <ul>
       <% @similar_items.each do |item| %>
         <li><%= link_to item.name, item_path(item) %></li>
       <% end %>
-    </ul>
   </div>
 <% end %>

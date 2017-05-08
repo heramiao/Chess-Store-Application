@@ -7,7 +7,7 @@
                 <li>
                 <div class="collapsible-header">
                     <i class="material-icons green darken-1">view_list</i>
-                    <h7><%= "Order Placed on #{order.date}" %></h7>
+                    <h7><%= "Order Placed on #{order.date.strftime('%m/%d/%y')}" %></h7>
                 </div>
                 <div class="collapsible-body">
                     <span>
@@ -25,7 +25,7 @@
                             <tr>
                             <td><%= link_to order_item.item.name, item_path(order_item.item) %></td>
                             <td><%= order_item.quantity %></td>
-                            <td><%= order_item.subtotal %></td>
+                            <td><%= number_to_currency(order_item.subtotal) %></td>
                             <% if order_item.shipped_on.nil? %>
                                 <td>Unshipped</td>
                             <% else %>

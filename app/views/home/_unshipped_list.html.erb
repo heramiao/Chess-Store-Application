@@ -8,7 +8,7 @@
                         <li>
                         <div class="collapsible-header">
                             <i class="material-icons green darken-1">view_list</i>
-                            <h7><%= "Order placed on #{us_order.date}" %></h7>
+                            <h7><%= "Order placed on #{us_order.date.strftime('%m/%d/%y')}" %></h7>
                         </div>
                         <div class="collapsible-body">
                             <span>

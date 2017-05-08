@@ -1,14 +1,14 @@
 <div id="price_history_details">
   <% unless @price_history.empty? %>
     <div class="panel clearfix">
-      <h3>Price History</h3>
+      <h4>Price History</h4>
       <ul>
         <% @price_history.each do |change| %>
           <%= number_to_currency change.price %>&nbsp;&nbsp;&nbsp;(<%= change.start_date.strftime('%m/%d/%y') %>)<br />
         <% end %>
       </ul>
 
-      <%= link_to(new_item_price_path(item_id: @item.id), id: 'new_price_link', class: 'button tiny radius', remote: true) do %>
+      <%= link_to(new_item_price_path(item_id: @item.id), id: 'new_price_link', class: "waves-effect waves-light btn green darken-1", remote: true) do %>
         Change Price
       <% end %>
     </div>
