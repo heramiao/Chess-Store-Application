@@ -1,28 +1,37 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> User</legend>
+    <% if logged_in? %>
+      <legend><%= controller.action_name.capitalize %> User</legend>
+    <% else %>
+      <legend>Create an account to begin shopping!</legend>
+    <% end %>
+
+    <br>
 
 		<%= f.input :first_name %>
 		<%= f.input :last_name %>
 		<%= f.input :email %>
     <%= f.input :phone %>
-    <%= link_to "Add School", new_school_path %>
     <%= f.input :username %>
 
     <% if logged_in? && current_user.role?(:admin) %>
       <%= f.input :role, collection: User::ROLES, include_blank: true, prompt: "Select a role" %>
+      <%= f.input :active %>
+      <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
     <% elsif logged_in? && current_user.role?(:manager) %>
       <%= f.input :role, collection: User::EMPLOYEE_ROLES, include_blank: true, prompt: "Select a role" %>
+      <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
     <% else %>
       <%= f.input :role, :as => :hidden, :input_html => {value: :customer} %>
+      <%= f.input :active, :as => :hidden, :input_html => {value: true} %>
     <% end %>
 		
 		<%= f.input :password %>
 		<%= f.input :password_confirmation %>
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'button radius' %>
-      <%= link_to 'Cancel', :back, :class => 'button alert radius' %>
+      <%= f.submit nil, class: "waves-effect waves-light btn green darken-1" %>
+      <%= link_to 'Cancel', :back, class: "waves-effect waves-light btn red" %>
     </div>
   </fieldset>
 <% end %>

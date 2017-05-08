@@ -7,8 +7,10 @@
         <th width="100">Price</th>
         <% if logged_in? && !current_user.role?(:customer) %>
           <th width="100">Inventory</th>
+          <% if !current_user.role?(:shipper) %>
           <th></th>
           <th></th>
+          <% end %>
         <% end %>
       </tr>
     </thead>

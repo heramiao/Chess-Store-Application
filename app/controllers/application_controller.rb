@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   include CanCan::ControllerAdditions
 
   private
@@ -19,14 +19,5 @@ class ApplicationController < ActionController::Base
   def check_login
     redirect_to login_url, alert: "You need to log in to view this page." if current_user.nil?
   end
-
-  # # Handling cart
-  # def current_order
-  #   if !session[:order_id].nil?
-  #     Order.find(session[:order_id])
-  #   else
-  #     Order.new
-  #   end
-  # end
 
 end
