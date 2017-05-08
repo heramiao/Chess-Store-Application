@@ -16,17 +16,17 @@
                     <tr>
                         <td><%= order_item.item.name %></td>
                         <td><%= order_item.quantity %></td>
-                        <td><%= link_to "Remove Item", remove_from_cart_path(order_item.item) %>
-                    <tr>
+                        <td><%= link_to "Remove Item", remove_from_cart_path(order_item.item) %></td>
+                    </tr>
                 <% end %>
             </tbody>
         </table>
     </div>
 
     <div class="col s3 offset-s1">
-        <h5>Subtotal: $<%= @subtotal %></h5>
-        <h5>Shipping Costs: $<%= @shipping_costs %></h5>
-        <h5>Total: $<%= @subtotal + @shipping_costs %></h5>
+        <h5>Subtotal: <%= number_to_currency(@subtotal) %></h5>
+        <h5>Shipping Costs: <%= number_to_currency(@shipping_costs) %></h5>
+        <h5>Total: <%= number_to_currency(@subtotal + @shipping_costs) %></h5>
         <h5><%= link_to "Checkout", new_order_path %></h5>
     </div>
 

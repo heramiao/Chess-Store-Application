@@ -3,8 +3,9 @@
 <% else %>
   <h4>Clocks</h4>
   <br>    
+  <div class="col s8">
   <% @clocks.each do |clock| %>
-    <div class="col s12 m4">
+    <div class="col s2 m4">
       <div class="card">
         <div class="card-image">
           <%= image_tag 'img_not_available.png' %>
@@ -16,9 +17,24 @@
           </ul>
         </div>
         <div class="card-action">
-          <%= link_to "Add to cart", add_to_cart_path(clock) %>
+          <% if logged_in? %>
+            <%= link_to "Add to cart", add_to_cart_path(clock) %>
+          <% else %>
+            <%= link_to "Add to cart", new_user_path %>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
+  </div>
 <% end %>
+
+<div id="side_nav_items">
+  <h5>Other Items</h5>
+  <ul>
+    <li><%= link_to "Boards", boards_path %></li>
+    <li><%= link_to "Pieces", pieces_path %></li>
+    <li><%= link_to "Supplies", supplies_path %></li>
+    <li><%= link_to "View All", items_path %></li>
+  </ul>
+</div> 
