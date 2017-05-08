@@ -20,6 +20,12 @@
   width: 84%;
   margin-left: 8%;
   margin-right: 8%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+nav {
+  background-color: #000000;
 }
 
 .nav {
@@ -27,11 +33,10 @@
   height: 122px;
 }
 
-.nav .nav_links {
-  text-align: right;
-  margin-right: 50px;
+.nav-wrapper {
   font-family: serif;
   font-size: 16px;
+  background-color: #000000;
 }
 
 footer {

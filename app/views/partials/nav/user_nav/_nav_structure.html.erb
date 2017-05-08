@@ -13,6 +13,14 @@
     <% else %>
       <%= render partial: "partials/nav/user_nav/guest" %>
     <% end %>
+
+    <li>
+      <% if logged_in? %>
+          <%= link_to 'Logout', logout_path, class:"waves-effect waves-light btn green darken-2" %>
+      <% else %>
+        <%= link_to 'Login', login_path, class:"waves-effect waves-light btn green darken-2" %>
+      <% end %>
+    </li>
   </ul>
 </div> 
 </nav>
