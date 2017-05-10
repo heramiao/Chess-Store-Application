@@ -1,13 +1,13 @@
 <%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Order</legend>
- 
-      <%= f.input :school_id, collection: School.active.alphabetical.all, include_blank: true %><br>
-      <%= "If school not in system, " %>
 
       <%= link_to(new_school_path(school_id: @order.school_id), id: 'new_school_link', class: 'button tiny radius', remote: true) do %>
         Add School
       <% end %>
+ 
+      <%= f.input :school_id, collection: School.active.alphabetical.all, include_blank: true %><br>
+      <%= "If school not in system, " %>
 
 		  <%= f.input :user_id, :as => :hidden, :input_html => {value: current_user.id} %>
 

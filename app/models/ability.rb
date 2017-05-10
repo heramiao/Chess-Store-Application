@@ -48,6 +48,9 @@ class Ability
       # they can edit items in the system
       can :update, Item
 
+      # they can destroy items in the system 
+      can :destroy, Item
+
       # they can create new prices for an items
       can :create, ItemPrice
 
