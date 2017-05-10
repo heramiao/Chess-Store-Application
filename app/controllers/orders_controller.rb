@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
         if @order.save 
             save_each_item_in_cart(@order)
             redirect_to home_path, notice: "Successfully created order."
+            clear_cart
         else
             render action: 'new'
         end

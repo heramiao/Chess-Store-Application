@@ -26,7 +26,7 @@
                                 <td><%= link_to us_item.item.name, item_path(us_item.item) %></td>
                                 <td><%= render partial: "partials/address_info", locals:{order: us_order} %></td>
                                 <td><%= link_to(ship_item_path(us_item.id), class: "waves-effect waves-light btn green darken-1", remote: true) do %>
-                                Shipped
+                                Ship
                                 <% end %></td>
                                 </tr>
                             <% end %>
