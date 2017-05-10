@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    include ChessStoreHelpers::Cart
 
     before_action :set_user, only: [:show, :edit, :update]  # user can never be destroyed
     authorize_resource
@@ -35,7 +36,6 @@ class UsersController < ApplicationController
     end 
 
     def edit_current_user
-        puts "edit_current_user"
         if logged_in?
             @user = current_user
         else
@@ -47,7 +47,8 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to home_path, notice: "You have successfully signed up!"
+            create_cart
+            redirect_to home_path, notice: "#{@user.proper_name} has been created!"
         else
             flash[:error] = "This user could not be created."
             render action: 'new'
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
             @user = current_user
             if @user.update_attributes(user_params)
                 flash[:notice] = "#{@user.proper_name} has been updated."
-                redirect_to @user
+                redirect_to user_path(@user)
             else
                 render action: 'edit'
             end

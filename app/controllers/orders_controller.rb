@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
+    include ChessStoreHelpers::Cart
 
-    before_action :set_order, only: [:show, :edit, :update, :delete]
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
     authorize_resource
 
     def index
@@ -21,7 +22,8 @@ class OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
     
-        if @order.save
+        if @order.save 
+            save_each_item_in_cart(@order)
             redirect_to home_path, notice: "Successfully created order."
         else
             render action: 'new'
@@ -32,6 +34,12 @@ class OrdersController < ApplicationController
     end
 
     def destroy
+        @order.destroy
+        if logged_in? && current_user.role?(:customer)
+            redirect_to home_path, notice: "Successfully destroyed order."
+        else
+            redirect_to orders_path, notice: "Successfully destroyed order."
+        end
     end
 
     private

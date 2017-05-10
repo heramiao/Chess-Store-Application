@@ -41,6 +41,6 @@ Rails.application.routes.draw do
   get 'cart/remove_from_cart/:id' => 'cart#remove_from_cart', :as => :remove_from_cart
 
   # Random routes
-  patch 'order_item/shipped' => 'order_items#shipped', :as => :shipped
+  get 'order_item/ship_item/:id' => 'order_items#ship_item', :as => :ship_item
 
 end

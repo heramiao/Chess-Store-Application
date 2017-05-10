@@ -30,7 +30,7 @@ class SchoolsController < ApplicationController
         end
     end
 
-    def update
+    def update   
     end
 
     def destroy

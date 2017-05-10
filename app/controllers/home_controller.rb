@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 
+  before_action :set_order_item, only: [:toggle, :complete]
+
   def home
     @unshipped_orders = Order.not_shipped.chronological
     @unshipped_orders.each do |us_order|

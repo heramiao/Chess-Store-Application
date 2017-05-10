@@ -33,6 +33,16 @@
                             <% end %>
                             </tr>
                         <% end %>
+                        <tr>
+                            <td>Grand Total</td>
+                            <td></td>
+                            <td><%= number_to_currency(order.grand_total) %></td>
+                            <% if @unshipped_orders.include?(order) %>
+                                <td><%= link_to "Cancel Order", order_path(order), method: :delete, confirm: "Are you sure you want to delete this order?", class: "waves-effect waves-light btn red" %></td>
+                            <% else %>
+                                <td></td>
+                            <% end %>
+                        </tr>
                     </tbody>
                     </table>
                     </span>

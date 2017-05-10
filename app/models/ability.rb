@@ -19,6 +19,9 @@ class Ability
       # they can read info about items
       can :read, Item 
 
+      # they can mark order items as unshipped
+      can :ship_item, OrderItem
+
     elsif user.role? :manager
       # they can read any information in the system
       can :read, :all

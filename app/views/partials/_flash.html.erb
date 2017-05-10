@@ -1,15 +1,3 @@
-<% if flash.any? %>
-  <ul class = "collection">
-    <% flash.each do |name, msg| %>
-      <% if name == :alert %>
-        <li class="collection-item red">
-          <%= flash.notice %>
-        </li>
-      <% else %>
-        <li class="collection-item green">
-          <%= flash.notice %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, id: "flash_#{name}" %>
 <% end %>
