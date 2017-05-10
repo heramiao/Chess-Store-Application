@@ -28,7 +28,7 @@
                         <td><%= active.username %></td>
                         <td><%= active.role %></td>
                         <td><%= link_to(edit_user_path(active, status: 'deactivate_user'), class: "waves-effect waves-light btn green darken-1") do %>
-                                &nbsp;Make Inactive
+                                Inactivate
                                 <% end %></td>
                         <td><%= link_to "Edit", edit_user_path(active), class: "waves-effect waves-light btn green darken-1"%>
                         </tr>
@@ -67,7 +67,7 @@
                         <td><%= inactive.username %></td>
                         <td><%= inactive.role %></td>
                         <td><%= link_to(edit_user_path(inactive, status: 'activate_user'), class: "waves-effect waves-light btn green darken-1") do %>
-                                &nbsp;Make Active
+                                Activate
                                 <% end %></td>
                         <td><%= link_to "Edit", edit_user_path(inactive), class: "waves-effect waves-light btn green darken-1" %>
                         </tr>
