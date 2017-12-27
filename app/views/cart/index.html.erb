@@ -8,6 +8,7 @@
                 <tr>
                     <th>Item</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                     <th></th>
                 </tr>
             </thead>
@@ -16,6 +17,7 @@
                     <tr>
                         <td><%= order_item.item.name %></td>
                         <td><%= order_item.quantity %></td>
+                        <td><%= number_to_currency(order_item.item.current_price) %></td>
                         <td><%= link_to "Remove Item", remove_from_cart_path(order_item.item), class: "waves-effect waves-light btn red right" %></td>
                     </tr>
                 <% end %>

@@ -18,11 +18,26 @@
             </ul>
           </div>
           <div class="card-action">
-            <% if logged_in? %>
-              <%= link_to "Add to cart", add_to_cart_path(board) %>
-            <% else %>
-              <%= link_to "Add to cart", new_user_path %>
-            <% end %>
+            <a class="waves-effect waves-light btn" href="#modal1">Add to cart</a>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4><%= board.name %></h4>
+                  <p>
+                    <div class="input-field col s6">
+                      <input id="quantity" type="int" class="validate">
+                      <label for="quantity">Quantity</label>
+                    </div>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
+                    <% if logged_in? %>
+                      <%= link_to "Add to cart", add_to_cart_path(board) %>
+                    <% else %>
+                      <%= link_to "Add to cart", new_user_path %>
+                    <% end %></a>
+                </div>
+            </div>
           </div>
         </div>
       </div>
